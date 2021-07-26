@@ -24,5 +24,15 @@ namespace MS_FastFood.View
         {
             InitializeComponent();
         }
+
+        private void EngLang_Click(object sender, RoutedEventArgs e)
+        {
+            App.changeLanguage("en-EN");
+        }
+
+        private void PolLang_Click(object sender, RoutedEventArgs e)
+        {
+            App.changeLanguage("pl-PL");
+        }
     }
 }

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MS_FastFood.View"
+             xmlns:lang="clr-namespace:MS_FastFood.Properties.Lang"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1024">
     <Grid>
@@ -20,23 +21,24 @@
 
 
         <ListBox x:Name="OrderListBox" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Padding="50" Height="550" Width="350"/>
-        <Button x:Name="SummaryButton" Grid.Row="2" Grid.Column="3" Content="Potwierdź zamówienie" FontSize="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Padding="10" Margin="10"/>
-        <Button x:Name="AddButton" Grid.Row="2" Grid.Column="0" Content="Dodaj" FontSize="25" VerticalAlignment="Bottom" HorizontalAlignment="Left" Padding="10" Margin="10"/>
-        <Button x:Name="DeleteButton" Grid.Row="2" Grid.Column="0" Content="Usuń" FontSize="25" VerticalAlignment="Bottom" HorizontalAlignment="Left" Padding="10" Margin="157,0,0,10"/>
+        <Button x:Name="ConfirmButton" Grid.Row="2" Grid.Column="3" Content="{x:Static lang:Lang.Confirm}" FontSize="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Padding="10" Margin="10"/>
+        <Button x:Name="AddButton" Grid.Row="2" Grid.Column="0" Content="{x:Static lang:Lang.Add}" FontSize="25" VerticalAlignment="Bottom" HorizontalAlignment="Left" Padding="10" Margin="10"/>
+        <Button x:Name="DeleteButton" Grid.Row="2" Grid.Column="0" Content="{x:Static lang:Lang.Delete}" FontSize="25" VerticalAlignment="Bottom" HorizontalAlignment="Left" Padding="10" Margin="157,0,0,10"/>
         <TabControl Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="550" Width="605" SelectionChanged="TabControl_SelectionChanged">
-            <TabItem x:Name="Burgers" Header="Burgery" HorizontalAlignment="Right" Margin="0,0,0,0" Width="150">
+            
+            <TabItem x:Name="Burgers" Header="{x:Static lang:Lang.Burgers}" HorizontalAlignment="Right" Width="150">
                 <ListBox x:Name="BurgersListBox" Margin="3px"/>
             </TabItem>
 
-            <TabItem x:Name="Drinks" Header="Napoje"  Width="150">
+            <TabItem x:Name="Drinks" Header="{x:Static lang:Lang.Drinks}"  Width="150">
                 <ListBox x:Name="DrinksListBox" Margin="3px"/>
             </TabItem>
 
-            <TabItem x:Name="Additions" Header="Dodatki" Width="150">
+            <TabItem x:Name="Additions" Header="{x:Static lang:Lang.Additions}" Width="150">
                 <ListBox x:Name="AdditionsListBox" Margin="3px"/>
             </TabItem>
 
-            <TabItem x:Name="Sets" Header="Zestawy" Width="150">
+            <TabItem x:Name="Sets" Header="{x:Static lang:Lang.Sets}" Width="150">
                 <ListBox x:Name="SetsListBox" Margin="3px"/>
             </TabItem>
 

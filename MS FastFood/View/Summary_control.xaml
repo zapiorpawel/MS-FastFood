@@ -4,10 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MS_FastFood.View"
+             xmlns:lang="clr-namespace:MS_FastFood.Properties.Lang"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1024">
     <Grid>
-        <Button x:Name="Finish" FontSize="30" Content="Zakończ" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="50" Padding="20"/>
-        <Button x:Name="Print" FontSize="30" Content="Wydrukuj potwierdzenie" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,250,50" Padding="20"/>
+        <Button x:Name="Finish" FontSize="30" Content="{x:Static lang:Lang.Finish}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="50" Padding="20"/>
+        <Button x:Name="Print" FontSize="30" Content="{x:Static lang:Lang.Summary}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,250,50" Padding="20"/>
     </Grid>
 </UserControl>

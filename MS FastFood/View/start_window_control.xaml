@@ -4,9 +4,27 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MS_FastFood.View"
+             xmlns:lang="clr-namespace:MS_FastFood.Properties.Lang"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1024">
     <Grid>
-        <Button x:Name="Start" FontSize="30" Content="Rozpocznij" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="50" Padding="20"/>
+        <Button x:Name="Start" FontSize="30" Content="{x:Static lang:Lang.Start}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="50" Padding="20"/>
+
+        <Button x:Name="PolLang" Content="{x:Static lang:Lang.PolVer}"  
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                FontSize="20"
+                Padding="10"
+                Margin="20"
+                Click="PolLang_Click"
+              />
+        <Button x:Name="EngLang" Content="{x:Static lang:Lang.EngVer}"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                FontSize="20"
+                Padding="10"
+                Margin="131,0,0,20"
+                Click="EngLang_Click"
+             />
     </Grid>
 </UserControl>
