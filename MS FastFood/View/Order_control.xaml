@@ -22,7 +22,7 @@
 
         <ListBox x:Name="OrderListBox" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Padding="50" Height="550" Width="350"/>
         <Button x:Name="ConfirmButton" Grid.Row="2" Grid.Column="3" Content="{x:Static lang:Lang.Confirm}" FontSize="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Padding="10" Margin="10"/>
-        <Button x:Name="AddButton" Grid.Row="2" Grid.Column="0" Content="{x:Static lang:Lang.Add}" FontSize="25" VerticalAlignment="Bottom" HorizontalAlignment="Left" Padding="10" Margin="10"/>
+        <Button x:Name="AddButton" Grid.Row="2" Grid.Column="0" Content="{x:Static lang:Lang.Add}" FontSize="10" VerticalAlignment="Bottom" HorizontalAlignment="Left" Padding="10" Margin="10"/>
         <Button x:Name="DeleteButton" Grid.Row="2" Grid.Column="0" Content="{x:Static lang:Lang.Delete}" FontSize="25" VerticalAlignment="Bottom" HorizontalAlignment="Left" Padding="10" Margin="157,0,0,10"/>
         <TabControl Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="550" Width="605" SelectionChanged="TabControl_SelectionChanged">
             
