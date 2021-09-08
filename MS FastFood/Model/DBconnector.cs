@@ -31,9 +31,7 @@ namespace MS_FastFood.Model
             stringBuilder.Server = "localhost";
             stringBuilder.Database = "msfastfood";
             stringBuilder.Port = 3306;
-            stringBuilder.Password ="1234";
+            stringBuilder.Password = "1234";
         }
-
-
     }
 }

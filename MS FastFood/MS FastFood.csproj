@@ -89,6 +89,13 @@
     <Compile Include="Model\Encje\drinks.cs" />
     <Compile Include="Model\Encje\orders.cs" />
     <Compile Include="Model\Encje\order_items.cs" />
+    <Compile Include="Model\Encje\sets.cs" />
+    <Compile Include="Model\Model.cs" />
+    <Compile Include="Model\Repozytoria\Rorders.cs" />
+    <Compile Include="Model\Repozytoria\RBurgers.cs" />
+    <Compile Include="Model\Repozytoria\RDrinks.cs" />
+    <Compile Include="Model\Repozytoria\Rorder_items.cs" />
+    <Compile Include="Model\Repozytoria\RSets.cs" />
     <Compile Include="Properties\Lang\Lang.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
