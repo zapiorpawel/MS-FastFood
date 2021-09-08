@@ -34,10 +34,6 @@
                 <ListBox x:Name="DrinksListBox" Margin="3px"/>
             </TabItem>
 
-            <TabItem x:Name="Additions" Header="{x:Static lang:Lang.Additions}" Width="150">
-                <ListBox x:Name="AdditionsListBox" Margin="3px"/>
-            </TabItem>
-
             <TabItem x:Name="Sets" Header="{x:Static lang:Lang.Sets}" Width="150">
                 <ListBox x:Name="SetsListBox" Margin="3px"/>
             </TabItem>
