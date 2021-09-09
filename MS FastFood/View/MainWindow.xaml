@@ -8,8 +8,10 @@
         mc:Ignorable="d"
        Title="{x:Static lang:Lang.Title}" Height="720" Width="1024">
     <Grid>
-        <View:start_window_control>
+        <View:Order_control>
             
+        </View:Order_control>
+        <View:start_window_control>
             
         </View:start_window_control>
         

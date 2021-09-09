@@ -34,5 +34,11 @@ namespace MS_FastFood.View
         {
             App.changeLanguage("pl-PL");
         }
+
+        private void OpenOrderControl(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+
+        }
     }
 }

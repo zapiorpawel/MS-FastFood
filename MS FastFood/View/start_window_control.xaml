@@ -8,7 +8,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1024">
     <Grid>
-        <Button x:Name="Start" FontSize="30" Content="{x:Static lang:Lang.Start}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="50" Padding="20"/>
+        <Button x:Name="Start" FontSize="30" Content="{x:Static lang:Lang.Start}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="50" Padding="20" Click="OpenOrderControl"
+         />
 
         <Button x:Name="PolLang" Content="{x:Static lang:Lang.PolVer}"  
                 HorizontalAlignment="Left"
