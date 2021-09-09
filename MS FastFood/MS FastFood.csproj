@@ -106,6 +106,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Lang.en.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\BaseClasses\RelayCommand.cs" />
+    <Compile Include="ViewModel\BaseClasses\ViewModelBase.cs" />
+    <Compile Include="ViewModel\DBList.cs" />
     <Compile Include="View\Order_control.xaml.cs">
       <DependentUpon>Order_control.xaml</DependentUpon>
     </Compile>

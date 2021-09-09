@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MS_FastFood.View"
              xmlns:lang="clr-namespace:MS_FastFood.Properties.Lang"
+             xmlns:vms="clr-namespace:MS_FastFood.ViewModel" d:DataContext="{d:DesignInstance Type=vms:DBList}"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1024">
     <Grid>
@@ -27,7 +28,8 @@
         <TabControl Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="550" Width="605" SelectionChanged="TabControl_SelectionChanged">
             
             <TabItem x:Name="Burgers" Header="{x:Static lang:Lang.Burgers}" HorizontalAlignment="Right" Width="150">
-                <ListBox x:Name="BurgersListBox" Margin="3px"/>
+                <ListBox x:Name="BurgersListBox" Margin="3px"
+                   ItemsSource="{Binding DBlist.burgers}" />
             </TabItem>
 
             <TabItem x:Name="Drinks" Header="{x:Static lang:Lang.Drinks}"  Width="150">
