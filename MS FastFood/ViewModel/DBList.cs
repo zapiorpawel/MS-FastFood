@@ -16,13 +16,16 @@ namespace MS_FastFood.ViewModel
     {
         private Model model = null;
         private ObservableCollection<burgers> Burgers = null;
-        private int indexBurger = -1;
+        private ObservableCollection<drinks> Drinks = null;
+        private ObservableCollection<sets> Sets = null;
+        //private int indexBurger = -1;
 
 
         public DBList(Model model)
         {
             this.model = model;
             Burgers = model.burgers;
+            Drinks = model.drinks;
         }
 
         /*public int indexcurrentburger
@@ -36,6 +39,8 @@ namespace MS_FastFood.ViewModel
         }
         */
         public burgers CurrentBurger { get; set; }
+        public drinks CurrentDrink { get; set; }
+        public sets CurrentSet { get; set; }
 
         public ObservableCollection<burgers> burgers
         {
@@ -46,6 +51,27 @@ namespace MS_FastFood.ViewModel
                 onPropertyChanged(nameof(burgers));
             }
         }
+
+        public ObservableCollection<drinks> drinks
+        {
+            get { return Drinks; }
+            set
+            {
+                Drinks = value;
+                onPropertyChanged(nameof(drinks));
+            }
+        }
+
+        public ObservableCollection<burgers> sets
+        {
+            get { return Sets; }
+            set
+            {
+                Sets = value;
+                onPropertyChanged(nameof(sets));
+            }
+        }
+
 
         public void RefreshBurgers() => burgers = model.burgers;
 

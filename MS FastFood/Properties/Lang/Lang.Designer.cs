@@ -142,6 +142,15 @@ namespace MS_FastFood.Properties.Lang {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Cena.
+        /// </summary>
+        public static string Price {
+            get {
+                return ResourceManager.GetString("Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Wydrukuj potwierdzenie.
         /// </summary>
         public static string Print {

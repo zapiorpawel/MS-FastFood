@@ -35,8 +35,35 @@
                 <ListView x:Name="BurgersListBox" Margin="3px" 
                           SelectedItem="{Binding PList.CurrentBurger}"
                           ItemsSource="{Binding PList.burgers}"
-                          SelectedIndex="{Binding PList.indexcurrentburger}"/>
-
+                          >
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn x:Name="column_name">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Name}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn x:Name="column_text">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{x:Static lang:Lang.Price}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn x:Name="column_price">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Price}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
             </TabItem>
 
             <TabItem x:Name="Drinks" Header="{x:Static lang:Lang.Drinks}"  Width="150">

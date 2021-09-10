@@ -144,6 +144,9 @@
   <data name="PolVer" xml:space="preserve">
     <value>Polski</value>
   </data>
+  <data name="Price" xml:space="preserve">
+    <value>Cena</value>
+  </data>
   <data name="Print" xml:space="preserve">
     <value>Wydrukuj potwierdzenie</value>
   </data>
