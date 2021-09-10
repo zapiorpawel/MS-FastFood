@@ -21,5 +21,13 @@ namespace MS_FastFood.Model.Encje
             Vegan = reader["vegan"].ToString();
             Price = sbyte.Parse(reader["price"].ToString());
         }
+
+        public burgers(burgers Burgers)
+        {
+            Id_burger = Burgers.Id_burger;
+            Name = Burgers.Name;
+            Vegan = Burgers.Vegan;
+            Price = Burgers.Price;
+        }
     }
 }

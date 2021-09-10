@@ -3,12 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:local="clr-namespace:MS_FastFood.View"
              xmlns:lang="clr-namespace:MS_FastFood.Properties.Lang"
-             xmlns:vms="clr-namespace:MS_FastFood.ViewModel" d:DataContext="{d:DesignInstance Type=vms:DBList}"
+             xmlns:vm="clr-namespace:MS_FastFood.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1024">
-    <Grid>
+    <UserControl.Resources>
+        <vm:MainViewModel x:Key="MainVM"/>
+    </UserControl.Resources>
+    <Grid DataContext="{StaticResource MainVM}">
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="20*"/>
@@ -28,8 +32,11 @@
         <TabControl Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="550" Width="605" SelectionChanged="TabControl_SelectionChanged">
             
             <TabItem x:Name="Burgers" Header="{x:Static lang:Lang.Burgers}" HorizontalAlignment="Right" Width="150">
-                <ListBox x:Name="BurgersListBox" Margin="3px"
-                   ItemsSource="{Binding DBlist.burgers}" />
+                <ListView x:Name="BurgersListBox" Margin="3px" 
+                          SelectedItem="{Binding PList.CurrentBurger}"
+                          ItemsSource="{Binding PList.burgers}"
+                          SelectedIndex="{Binding PList.indexcurrentburger}"/>
+
             </TabItem>
 
             <TabItem x:Name="Drinks" Header="{x:Static lang:Lang.Drinks}"  Width="150">

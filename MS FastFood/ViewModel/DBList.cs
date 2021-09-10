@@ -16,14 +16,24 @@ namespace MS_FastFood.ViewModel
     {
         private Model model = null;
         private ObservableCollection<burgers> Burgers = null;
+        private int indexBurger = -1;
 
 
         public DBList(Model model)
         {
             this.model = model;
-            Burgers = model.Burgers;
+            Burgers = model.burgers;
         }
 
+        public int indexcurrentburger
+        {
+            get => indexcurrentburger;
+            set
+            {
+                indexcurrentburger = value;
+                onPropertyChanged(nameof(indexcurrentburger));
+            }
+        }
         public burgers CurrentBurger { get; set; }
 
         public ObservableCollection<burgers> burgers
@@ -36,7 +46,7 @@ namespace MS_FastFood.ViewModel
             }
         }
 
-        public void RefreshBurgers() => Burgers = model.Burgers;
+        public void RefreshBurgers() => burgers = model.burgers;
 
         private ICommand Zburgers = null;
         public ICommand ZBurgers
@@ -47,7 +57,8 @@ namespace MS_FastFood.ViewModel
                     Zburgers = new RelayCommand(
                         arg =>
                         {
-                            Burgers = model.Burgers;
+                            burgers = model.burgers;
+                            indexcurrentburger = -1;
 
                         }
                         ,

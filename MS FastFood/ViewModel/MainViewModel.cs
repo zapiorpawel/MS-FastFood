@@ -5,13 +5,22 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace MS_FastFood.ViewModel
 {
+    using MS_FastFood.Model;
+    using BaseClasses;
 
-
-    class MainViewModel : INotifyPropertyChanged
+    class MainViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        private Model model = new Model();
+
+        public DBList PList { get; set; }
+
+        public MainViewModel()
+        {
+            PList = new DBList(model);
+        }
     }
 }
