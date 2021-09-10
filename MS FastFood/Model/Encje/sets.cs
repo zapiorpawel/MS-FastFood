@@ -10,19 +10,19 @@ namespace MS_FastFood.Model.Encje
     class sets
     {
 
-        public sbyte? Id_set { get; set; }
+        public int Id_set { get; set; }
         public string Name { get; set; }
-        public sbyte? Id_product1 { get; set;}
-        public sbyte? Id_product2 { get; set;}
-        public sbyte? Price { get; set; }
+        public int Id_product1 { get; set;}
+        public int Id_product2 { get; set;}
+        public int Price { get; set; }
 
         public sets(MySqlDataReader reader)
         {
-            Id_set = sbyte.Parse(reader["id_set"].ToString());
+            Id_set = int.Parse(reader["id_set"].ToString());
             Name = reader["name"].ToString();
-            Id_product1 = sbyte.Parse(reader["id_product1"].ToString());
-            Id_product2 = sbyte.Parse(reader["id_product2"].ToString());
-            Price = sbyte.Parse(reader["price"].ToString());
+            Id_product1 = int.Parse(reader["id_product1"].ToString());
+            Id_product2 = int.Parse(reader["id_product2"].ToString());
+            Price = int.Parse(reader["price"].ToString());
         }
     }
 }

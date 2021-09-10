@@ -25,7 +25,7 @@ namespace MS_FastFood.ViewModel
             Burgers = model.burgers;
         }
 
-        public int indexcurrentburger
+        /*public int indexcurrentburger
         {
             get => indexcurrentburger;
             set
@@ -34,6 +34,7 @@ namespace MS_FastFood.ViewModel
                 onPropertyChanged(nameof(indexcurrentburger));
             }
         }
+        */
         public burgers CurrentBurger { get; set; }
 
         public ObservableCollection<burgers> burgers
@@ -58,7 +59,7 @@ namespace MS_FastFood.ViewModel
                         arg =>
                         {
                             burgers = model.burgers;
-                            indexcurrentburger = -1;
+                            //indexcurrentburger = -1;
 
                         }
                         ,

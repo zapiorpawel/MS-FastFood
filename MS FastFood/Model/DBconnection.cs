@@ -32,6 +32,7 @@ namespace MS_FastFood.Model
             stringBuilder.Database = "msfastfood";
             stringBuilder.Port = 3306;
             stringBuilder.Password = "1234";
+            stringBuilder.SslMode = MySqlSslMode.None;
         }
     }
 }

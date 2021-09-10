@@ -9,17 +9,17 @@ namespace MS_FastFood.Model.Encje
 {
     class burgers
     {
-        public sbyte? Id_burger { get; set; }
+        public int Id_burger { get; set; }
         public string Name { get; set; }
         public string Vegan { get; set; }
-        public sbyte? Price { get; set; }
+        public int Price { get; set; }
 
         public burgers(MySqlDataReader reader)
         {
-            Id_burger = sbyte.Parse(reader["id_burger"].ToString());
+            Id_burger = int.Parse(reader["id_burger"].ToString());
             Name=reader["name"].ToString();
             Vegan = reader["vegan"].ToString();
-            Price = sbyte.Parse(reader["price"].ToString());
+            Price = int.Parse(reader["price"].ToString());
         }
 
         public burgers(burgers Burgers)

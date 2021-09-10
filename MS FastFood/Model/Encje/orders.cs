@@ -9,18 +9,18 @@ namespace MS_FastFood.Model.Encje
 {
     class orders
     {
-        public sbyte? Id_order { get; set; }
-        public sbyte? Amount_to_pay { get; set; }
+        public int Id_order { get; set; }
+        public int Amount_to_pay { get; set; }
         public string Payment_method { get; set; }
 
         public orders(MySqlDataReader reader)
         {
-            Id_order = sbyte.Parse(reader["id_order"].ToString());
-            Amount_to_pay = sbyte.Parse(reader["amount_to_pay"].ToString());
+            Id_order = int.Parse(reader["id_order"].ToString());
+            Amount_to_pay = int.Parse(reader["amount_to_pay"].ToString());
             Payment_method = reader["payment_method"].ToString();
         }
 
-        public orders(sbyte id_order, sbyte amount_to_pay, string payment_method)
+        public orders(int id_order, int amount_to_pay, string payment_method)
         {
             Id_order = id_order;
             Amount_to_pay = amount_to_pay;
