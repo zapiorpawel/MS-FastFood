@@ -12,14 +12,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MS_FastFood.ViewModel;
 
 namespace MS_FastFood.View
+    
 {
+
     /// <summary>
     /// Logika interakcji dla klasy start_window_control.xaml
     /// </summary>
     public partial class start_window_control : UserControl
     {
+
+        public event EventHandler VisibleChanged;
+
+
         public start_window_control()
         {
             InitializeComponent();
@@ -39,6 +46,11 @@ namespace MS_FastFood.View
         {
             this.Visibility = Visibility.Hidden;
 
+
+           
+
+            
+            
         }
     }
 }

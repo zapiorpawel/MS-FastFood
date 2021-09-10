@@ -62,7 +62,7 @@ namespace MS_FastFood.ViewModel
             }
         }
 
-        public ObservableCollection<burgers> sets
+        public ObservableCollection<sets> sets
         {
             get { return Sets; }
             set
@@ -72,10 +72,13 @@ namespace MS_FastFood.ViewModel
             }
         }
 
-
         public void RefreshBurgers() => burgers = model.burgers;
+        public void RefreshDrinks() => drinks = model.drinks;
+        public void RefreshSets() => sets = model.sets;
 
         private ICommand Zburgers = null;
+        private ICommand Zdrinks = null;
+        private ICommand Zsets = null;
         public ICommand ZBurgers
         {
             get
@@ -91,6 +94,34 @@ namespace MS_FastFood.ViewModel
                         ,
                         arg => true);
                 return Zburgers;
+            }
+        }
+        public ICommand ZDrinks
+        {
+            get
+            {
+                if (Zdrinks == null)
+                    Zdrinks = new RelayCommand(
+                        arg =>
+                        {
+                            drinks = model.drinks;
+                        },
+                        arg => true);
+                return Zdrinks;
+            }
+        }
+        public ICommand ZSets
+        {
+            get
+            {
+                if (Zsets == null)
+                    Zsets = new RelayCommand(
+                        arg =>
+                        {
+                            sets = model.sets;
+                        },
+                        arg => true);
+                return Zsets;
             }
         }
     }

@@ -11,9 +11,12 @@ namespace MS_FastFood.ViewModel
 {
     using MS_FastFood.Model;
     using BaseClasses;
+    using System.Windows;
 
-    class MainViewModel
+    class MainViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private Model model = new Model();
 
         public DBList PList { get; set; }
@@ -22,5 +25,8 @@ namespace MS_FastFood.ViewModel
         {
             PList = new DBList(model);
         }
+
+
+
     }
 }
