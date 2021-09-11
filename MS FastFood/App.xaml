@@ -6,6 +6,9 @@
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
+            <BitmapImage x:Key="burger" UriSource="Assets\burger.png"></BitmapImage>
+            <BitmapImage x:Key="man" UriSource="Assets\msfoodp.png"></BitmapImage>
+            <BitmapImage x:Key="logo" UriSource="Assets\logo.png"></BitmapImage>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />

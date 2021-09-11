@@ -115,7 +115,7 @@ namespace MS_FastFood.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Angielski.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu English.
         /// </summary>
         public static string EngVer {
             get {

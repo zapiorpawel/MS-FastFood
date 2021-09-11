@@ -8,14 +8,15 @@
              xmlns:lang="clr-namespace:MS_FastFood.Properties.Lang"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1000">
-    <Grid Background="#be3f2a">
+    <Grid Background="#101010">
         <Grid Width="300" HorizontalAlignment="Left" Background="#ffea00">
             <ListView x:Name="MenuSlides" Margin="0 0" >
-                <ListView Height="150">
-                    <Grid>
-
-                    </Grid>
-                </ListView>
+                <ListView Height="150" Width="295">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource logo}" Height="100" Width="100"/>
+                        <TextBlock Text="MSFOOD" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"/>
+                    </StackPanel>
+            </ListView>
                 <ListView Height="80" Margin="0 0" SelectionChanged="MenuSlides_SelectionChanged">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:TransitioningContent x:Name="Start_transition" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.2}">
@@ -27,7 +28,7 @@
                 </ListView>
                 <ListView Height="150">
                     <Grid>
-
+                        
                     </Grid>
                 </ListView>
                 <ListView Height="80" Margin="0 0" SelectionChanged="Polish_SelectionChanged">
@@ -51,6 +52,7 @@
             </ListView>
         </Grid>
         <Grid Width="500" Height="1000" VerticalAlignment="Center" HorizontalAlignment="Right" Margin=" 0 0 100 0">
+        <Image Source="{StaticResource burger}" Margin="0,31,0,0" Height="700"></Image>
         </Grid>
     </Grid>
 </UserControl>
