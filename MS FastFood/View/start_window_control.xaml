@@ -3,29 +3,54 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:MS_FastFood.View"
              xmlns:lang="clr-namespace:MS_FastFood.Properties.Lang"
              mc:Ignorable="d" 
-             d:DesignHeight="720" d:DesignWidth="1024">
-    <Grid>
-        <Button x:Name="Start" FontSize="30" Content="{x:Static lang:Lang.Start}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="50" Padding="20" Click="OpenOrderControl"
-         />
+             d:DesignHeight="720" d:DesignWidth="1000">
+    <Grid Background="#be3f2a">
+        <Grid Width="300" HorizontalAlignment="Left" Background="#ffea00">
+            <ListView x:Name="MenuSlides" Margin="0 0" >
+                <ListView Height="150">
+                    <Grid>
 
-        <Button x:Name="PolLang" Content="{x:Static lang:Lang.PolVer}"  
-                HorizontalAlignment="Left"
-                VerticalAlignment="Bottom"
-                FontSize="20"
-                Padding="10"
-                Margin="20"
-                Click="PolLang_Click"
-              />
-        <Button x:Name="EngLang" Content="{x:Static lang:Lang.EngVer}"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Bottom"
-                FontSize="20"
-                Padding="10"
-                Margin="131,0,0,20"
-                Click="EngLang_Click"
-             />
+                    </Grid>
+                </ListView>
+                <ListView Height="80" Margin="0 0" SelectionChanged="MenuSlides_SelectionChanged">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:TransitioningContent x:Name="Start_transition" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.2}">
+                            <Grid x:Name="OrderGrid" Margin="0 0 0 0" Background="#be3f2a" Width="10" HorizontalAlignment="Left" Height="80" />
+                        </materialDesign:TransitioningContent>
+                        <materialDesign:PackIcon Kind="Food" Width="60" Height="60" VerticalAlignment="Center" Margin="5" Foreground="Black"/>
+                        <TextBlock Text="START" FontSize="45" VerticalAlignment="Center" Margin="20 0" />
+                    </StackPanel>
+                </ListView>
+                <ListView Height="150">
+                    <Grid>
+
+                    </Grid>
+                </ListView>
+                <ListView Height="80" Margin="0 0" SelectionChanged="Polish_SelectionChanged">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:TransitioningContent x:Name="Polish_transition" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.2}">
+                            <Grid x:Name="PolishGrid" Margin="0 0 0 0" Background="#be3f2a" Width="10" HorizontalAlignment="Left" Height="80" />
+                        </materialDesign:TransitioningContent>
+                        <materialDesign:PackIcon Kind="Translate" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="Black"/>
+                        <TextBlock Text="{x:Static lang:Lang.PolVer}" FontSize="15" VerticalAlignment="Center" Margin="20 0" />
+                    </StackPanel>
+                </ListView>
+                <ListView Height="80" Margin="0 0" SelectionChanged="English_SelectionChanged">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:TransitioningContent x:Name="English_transition" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.2}">
+                            <Grid x:Name="EnglishGrid" Margin="0 0 0 0" Background="#be3f2a" Width="10" HorizontalAlignment="Left" Height="80" />
+                        </materialDesign:TransitioningContent>
+                        <materialDesign:PackIcon Kind="Translate" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="Black"/>
+                        <TextBlock Text="{x:Static lang:Lang.EngVer}" FontSize="15" VerticalAlignment="Center" Margin="20 0" />
+                    </StackPanel>
+                </ListView>
+            </ListView>
+        </Grid>
+        <Grid Width="500" Height="1000" VerticalAlignment="Center" HorizontalAlignment="Right" Margin=" 0 0 100 0">
+        </Grid>
     </Grid>
 </UserControl>

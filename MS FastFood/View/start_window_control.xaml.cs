@@ -44,13 +44,35 @@ namespace MS_FastFood.View
 
         private void OpenOrderControl(object sender, RoutedEventArgs e)
         {
-            this.Visibility = Visibility.Hidden;
-
-
-           
-
-            
-            
+            this.Visibility = Visibility.Hidden;      
         }
+
+        private void MenuSlides_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = MenuSlides.SelectedIndex;
+            this.Visibility = Visibility.Hidden;
+            MoveCursorMenu(index);
+        }
+
+        private void Polish_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = MenuSlides.SelectedIndex;
+            App.changeLanguage("pl-PL");
+            MoveCursorMenu(index);
+        }
+
+        private void English_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = MenuSlides.SelectedIndex;
+            App.changeLanguage("en-EN");
+            MoveCursorMenu(index);
+        }
+
+        private void MoveCursorMenu(int index)
+        {
+            Start_transition.OnApplyTemplate();
+            OrderGrid.Margin = new Thickness(0, 100 + (60 * index), 0, 0);
+        }
+
     }
 }
