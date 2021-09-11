@@ -133,6 +133,15 @@ namespace MS_FastFood.Properties.Lang {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Z lodem.
+        /// </summary>
+        public static string Iced {
+            get {
+                return ResourceManager.GetString("Iced", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Polski.
         /// </summary>
         public static string PolVer {
@@ -165,6 +174,15 @@ namespace MS_FastFood.Properties.Lang {
         public static string Sets {
             get {
                 return ResourceManager.GetString("Sets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Rozmiar.
+        /// </summary>
+        public static string Size {
+            get {
+                return ResourceManager.GetString("Size", resourceCulture);
             }
         }
         

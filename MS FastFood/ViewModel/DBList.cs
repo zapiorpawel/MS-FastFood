@@ -26,6 +26,7 @@ namespace MS_FastFood.ViewModel
             this.model = model;
             Burgers = model.burgers;
             Drinks = model.drinks;
+            Sets = model.sets;
         }
 
         /*public int indexcurrentburger

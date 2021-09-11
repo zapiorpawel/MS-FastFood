@@ -141,6 +141,9 @@
   <data name="Finish" xml:space="preserve">
     <value>Finish</value>
   </data>
+  <data name="Iced" xml:space="preserve">
+    <value>Iced</value>
+  </data>
   <data name="PolVer" xml:space="preserve">
     <value>Polish</value>
   </data>
@@ -152,6 +155,9 @@
   </data>
   <data name="Sets" xml:space="preserve">
     <value>Sets</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Size</value>
   </data>
   <data name="Start" xml:space="preserve">
     <value>Start</value>

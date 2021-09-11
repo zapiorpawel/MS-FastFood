@@ -8,18 +8,16 @@
         mc:Ignorable="d"
        Title="{x:Static lang:Lang.Title}" Height="720" Width="1024">
     <Grid>
-        <View:Summary_control x:Name="SummaryControl" Visibility="{Binding SummaryControlVisibility}">
+        <View:Summary_control x:Name="SummaryControl">
 
         </View:Summary_control>
 
-        <View:Order_control x:Name="OrderControl" Visibility="{Binding OrderControlVisibility}">
+        <View:Order_control x:Name="OrderControl" >
             
         </View:Order_control>
         
         <View:start_window_control x:Name="StartControl"  >
-            <DataTrigger Binding="{Binding Path=vis, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }" Value="False">
-                <Setter Property="Visibility" Value="Hidden"/>
-            </DataTrigger>
+            
         </View:start_window_control>
         
         

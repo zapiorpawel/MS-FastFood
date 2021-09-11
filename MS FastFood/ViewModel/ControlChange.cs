@@ -9,7 +9,7 @@ using System.Windows;
 namespace MS_FastFood.ViewModel
 {
 
-    public class ControlChange
+    /*public class ControlChange
     {
 
         public event DependencyPropertyChangedEventHandler PropertyChanged;
@@ -62,5 +62,5 @@ namespace MS_FastFood.ViewModel
             }
         
 
-    }
+    }*/
 }
