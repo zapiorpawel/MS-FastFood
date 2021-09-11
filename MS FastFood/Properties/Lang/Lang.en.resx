@@ -123,6 +123,9 @@
   <data name="Additions" xml:space="preserve">
     <value>Additions</value>
   </data>
+  <data name="Amp" xml:space="preserve">
+    <value>Amount to pay</value>
+  </data>
   <data name="Burgers" xml:space="preserve">
     <value>Bugers</value>
   </data>

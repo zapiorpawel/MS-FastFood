@@ -24,5 +24,11 @@ namespace MS_FastFood.View
         {
             InitializeComponent();
         }
+
+        private void End_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Application.Current.Shutdown();           
+        }
+       
     }
 }

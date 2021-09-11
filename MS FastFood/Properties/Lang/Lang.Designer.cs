@@ -79,6 +79,15 @@ namespace MS_FastFood.Properties.Lang {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Kwota do zapłaty.
+        /// </summary>
+        public static string Amp {
+            get {
+                return ResourceManager.GetString("Amp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Burgery.
         /// </summary>
         public static string Burgers {

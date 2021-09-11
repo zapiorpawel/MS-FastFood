@@ -32,21 +32,6 @@ namespace MS_FastFood.View
             InitializeComponent();
         }
 
-        private void EngLang_Click(object sender, RoutedEventArgs e)
-        {
-            App.changeLanguage("en-EN");
-        }
-
-        private void PolLang_Click(object sender, RoutedEventArgs e)
-        {
-            App.changeLanguage("pl-PL");
-        }
-
-        private void OpenOrderControl(object sender, RoutedEventArgs e)
-        {
-            this.Visibility = Visibility.Hidden;      
-        }
-
         private void MenuSlides_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = MenuSlides.SelectedIndex;

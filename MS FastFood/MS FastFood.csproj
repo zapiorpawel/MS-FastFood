@@ -215,7 +215,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Resource Include="Assets\logo.png" />
+    <Resource Include="Assets\logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Assets\msfoodp.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

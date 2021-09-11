@@ -11,10 +11,10 @@
     <Grid Background="#101010">
         <Grid Width="300" HorizontalAlignment="Left" Background="#ffea00">
             <ListView x:Name="MenuSlides" Margin="0 0" >
-                <ListView Height="150" Width="295">
+                <ListView Height="150" Width="280" Margin="0 10 0 0">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="{StaticResource logo}" Height="100" Width="100"/>
-                        <TextBlock Text="MSFOOD" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"/>
+                        <TextBlock Text="MSFOOD" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35"/>
                     </StackPanel>
             </ListView>
                 <ListView Height="80" Margin="0 0" SelectionChanged="MenuSlides_SelectionChanged">

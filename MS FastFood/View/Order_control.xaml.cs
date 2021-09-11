@@ -23,6 +23,7 @@ namespace MS_FastFood.View
         public Order_control()
         {
             InitializeComponent();
+            this.Visibility = Visibility.Hidden;
         }
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
