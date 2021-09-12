@@ -20,13 +20,12 @@ namespace MS_FastFood.ViewModel
         private Model model = new Model();
 
         public DBList PList { get; set; }
+        public OrderList OList { get; set; }
 
         public MainViewModel()
         {
             PList = new DBList(model);
+            OList = new OrderList(model);
         }
-
-
-
     }
 }

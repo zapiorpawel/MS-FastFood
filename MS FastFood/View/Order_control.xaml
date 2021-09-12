@@ -46,14 +46,7 @@
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
-                                <GridViewColumn x:Name="burger_text">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{x:Static lang:Lang.Price}"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                                <GridViewColumn x:Name="burger_price">
+                                <GridViewColumn x:Name="burger_price" Header="{x:Static lang:Lang.Price}">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock Text="{Binding Price}"/>
@@ -95,14 +88,7 @@
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
-                                <GridViewColumn x:Name="drink_price_text">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{x:Static lang:Lang.Price}"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                                <GridViewColumn x:Name="drink_price">
+                                <GridViewColumn x:Name="drink_price" Header="{x:Static lang:Lang.Price}">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock Text="{Binding Price}"/>
@@ -132,14 +118,7 @@
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
-                                <GridViewColumn x:Name="sets_price_text">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{x:Static lang:Lang.Price}"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                                <GridViewColumn x:Name="sets_price">
+                                <GridViewColumn x:Name="sets_price" Header="{x:Static lang:Lang.Price}">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock Text="{Binding Price}"/>
@@ -154,8 +133,9 @@
             </TabItem>
 
         </TabControl>
+<!--Produkty dodane do zamówienia-->
+       <DataGrid 
 
-        <DataGrid 
                         x:Name="dg_osoby"
                         Grid.Column="1"
                         AutoGenerateColumns="False"
@@ -163,14 +143,13 @@
                         AlternatingRowBackground="Lavender"
                         GridLinesVisibility="None"
                         IsReadOnly="True"
-                        ItemsSource="{Binding TabDodajOsobyVM.Osoby}"
-                        SelectedItem="{Binding TabDodajOsobyVM.BiezacaOsoba}"
-                        SelectedIndex="{Binding TabDodajOsobyVM.IdZaznaczenia, Mode=TwoWay}"    
+                        ItemsSource="{Binding OList.namelist}"
+                        SelectedItem="{Binding OList.CurrentOrderItem}"
                         Grid.Row="1"    
                     >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Produkt" Binding="{Binding Produkt}"/>
-                <DataGridTextColumn Header="Cena" Binding="{Binding Cena}"/>
+                <DataGridTextColumn Header="Produkt" Binding="{Binding OList.name}"/>
+                <DataGridTextColumn Header="{x:Static lang:Lang.Price}" Binding="{Binding Cena}"/>
             </DataGrid.Columns>
 
             <i:Interaction.Triggers>
@@ -178,7 +157,7 @@
                     <i:InvokeCommandAction Command="{Binding TabDodajProdukt.LadujFormularz}"/>
                 </i:EventTrigger>
             </i:Interaction.Triggers>
-        </DataGrid>
+        </DataGrid> 
 
     </Grid>
 </UserControl>

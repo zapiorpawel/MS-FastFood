@@ -18,6 +18,7 @@ namespace MS_FastFood.Model
         public ObservableCollection<order_items> Order_Items { get; set; } = new ObservableCollection<order_items>();
         public ObservableCollection<orders> Orders { get; set; } = new ObservableCollection<orders>();
         public ObservableCollection<sets> Sets { get; set; } = new ObservableCollection<sets>();
+        public ObservableCollection<Names> Namelist = new ObservableCollection<Names>();
 
         public Model()
         {
@@ -39,7 +40,7 @@ namespace MS_FastFood.Model
 
         }
 
-        private burgers SearchBurgerByID(int id)
+        public burgers SearchBurgerByID(int id)
         {
             foreach (var t in Burgers)
             {
@@ -49,7 +50,7 @@ namespace MS_FastFood.Model
             return null;
         }
 
-        private drinks SearchDrinkByID(int id)
+        public drinks SearchDrinkByID(int id)
         {
             foreach (var t in Drinks)
             {
@@ -58,7 +59,7 @@ namespace MS_FastFood.Model
             }
             return null;
         }
-        private sets SearchSetsByID(int id)
+        public sets SearchSetsByID(int id)
         {
             foreach (var t in Sets)
             {
@@ -68,23 +69,27 @@ namespace MS_FastFood.Model
             return null;
         }
 
-
-
         public void AddBurgerDoOrderItems(burgers burgers)
         {
-            order_items OrderItem = new order_items(OrderID, burgers.Id_burger,null,null,burgers.Price);
+            order_items OrderItem = new order_items(OrderID, burgers.Id_burger,0,0,burgers.Price);
+            Names n = new Names(burgers.Name,burgers.Price);
+            Namelist.Add(n);
             Rorder_items.AddOrderItemsToTheBase(OrderItem);
         }
 
         public void AddDrinkToOrderItems(drinks drinks)
         {
-            order_items OrderItem = new order_items(OrderID, null, drinks.Id_drink, null, drinks.Price);
+            order_items OrderItem = new order_items(OrderID, 0, drinks.Id_drink, 0, drinks.Price);
+            Names n = new Names(drinks.Name,drinks.Price);
+            Namelist.Add(n);
             Rorder_items.AddOrderItemsToTheBase(OrderItem);
         }
 
         public void AddSetToOrderItems(sets sets)
         {
-            order_items OrderItem = new order_items(OrderID, null, null, sets.Id_set, sets.Price);
+            order_items OrderItem = new order_items(OrderID, 0, 0, sets.Id_set, sets.Price);
+            Names n = new Names(sets.Name,sets.Price);
+            Namelist.Add(n);
             Rorder_items.AddOrderItemsToTheBase(OrderItem);
 
         }

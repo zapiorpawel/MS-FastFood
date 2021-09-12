@@ -156,6 +156,9 @@
   <data name="Print" xml:space="preserve">
     <value>Wydrukuj potwierdzenie</value>
   </data>
+  <data name="Product" xml:space="preserve">
+    <value>Produkt</value>
+  </data>
   <data name="Sets" xml:space="preserve">
     <value>Zestawy</value>
   </data>

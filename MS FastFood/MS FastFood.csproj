@@ -112,6 +112,7 @@
     <Compile Include="Model\Encje\order_items.cs" />
     <Compile Include="Model\Encje\sets.cs" />
     <Compile Include="Model\Model.cs" />
+    <Compile Include="Model\Names.cs" />
     <Compile Include="Model\Repozytoria\Rorders.cs" />
     <Compile Include="Model\Repozytoria\RBurgers.cs" />
     <Compile Include="Model\Repozytoria\RDrinks.cs" />
@@ -131,6 +132,7 @@
     <Compile Include="ViewModel\BaseClasses\ViewModelBase.cs" />
     <Compile Include="ViewModel\ControlChange.cs" />
     <Compile Include="ViewModel\DBList.cs" />
+    <Compile Include="ViewModel\OrderList.cs" />
     <Compile Include="View\Order_control.xaml.cs">
       <DependentUpon>Order_control.xaml</DependentUpon>
     </Compile>
