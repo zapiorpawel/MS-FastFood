@@ -25,12 +25,12 @@
         </Grid.ColumnDefinitions>
 
 
-        <ListBox x:Name="OrderListBox" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Padding="50" Height="550" Width="350"/>
+        <ListBox x:Name="OrderListBox" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Padding="50" Width="350" SelectionChanged="OrderListBox_SelectionChanged" Margin="17,13,17,89"/>
         <Button x:Name="ConfirmButton" Grid.Row="2" Grid.Column="3" Content="{x:Static lang:Lang.Confirm}" FontSize="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Padding="10" Margin="10"/>
         <Button x:Name="AddButton" Grid.Row="2" Grid.Column="0" Content="{x:Static lang:Lang.Add}" FontSize="10" VerticalAlignment="Bottom" HorizontalAlignment="Left" Padding="10" Margin="10"/>
         <Button x:Name="DeleteButton" Grid.Row="2" Grid.Column="0" Content="{x:Static lang:Lang.Delete}" FontSize="25" VerticalAlignment="Bottom" HorizontalAlignment="Left" Padding="10" Margin="157,0,0,10"/>
         <TabControl Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="550" Width="605" SelectionChanged="TabControl_SelectionChanged">
-            
+
             <TabItem x:Name="Burgers" Header="{x:Static lang:Lang.Burgers}" HorizontalAlignment="Right" Width="150">
                 <ListView x:Name="BurgersListBox" Margin="3px" 
                           SelectedItem="{Binding PList.CurrentBurger}"
@@ -66,7 +66,7 @@
                 </ListView>
             </TabItem>
 
-            <TabItem x:Name="Drinks" Header="{x:Static lang:Lang.Drinks}"  Width="150">
+            <TabItem x:Name="Drinks" Header="{x:Static lang:Lang.Drinks}"  Width="150" HorizontalAlignment="Right" Margin="0,-2,0,0">
                 <ListView x:Name="DrinksListBox" Margin="3px"
                           SelectedItem="{Binding PList.CurrentDrink}"
                           ItemsSource="{Binding PList.drinks}"
@@ -109,11 +109,11 @@
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
-                                
+
                             </GridView.Columns>
                         </GridView>
                     </ListView.View>
-                    
+
                 </ListView>
             </TabItem>
 
@@ -149,11 +149,36 @@
                             </GridView.Columns>
                         </GridView>
                     </ListView.View>
-                    
+
                 </ListView>
             </TabItem>
 
         </TabControl>
+
+        <DataGrid 
+                        x:Name="dg_osoby"
+                        Grid.Column="1"
+                        AutoGenerateColumns="False"
+                        Margin="5,5,5,89"
+                        AlternatingRowBackground="Lavender"
+                        GridLinesVisibility="None"
+                        IsReadOnly="True"
+                        ItemsSource="{Binding TabDodajOsobyVM.Osoby}"
+                        SelectedItem="{Binding TabDodajOsobyVM.BiezacaOsoba}"
+                        SelectedIndex="{Binding TabDodajOsobyVM.IdZaznaczenia, Mode=TwoWay}"    
+                        Grid.Row="1"    
+                    >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Produkt" Binding="{Binding Produkt}"/>
+                <DataGridTextColumn Header="Cena" Binding="{Binding Cena}"/>
+            </DataGrid.Columns>
+
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding TabDodajProdukt.LadujFormularz}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </DataGrid>
 
     </Grid>
 </UserControl>

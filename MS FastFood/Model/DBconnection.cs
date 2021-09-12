@@ -24,7 +24,7 @@ namespace MS_FastFood.Model
 
         public MySqlConnection Connection => new MySqlConnection(stringBuilder.ToString());
 
-
+        //Przerzucić do propertis
         private DBConnection()
         {
             stringBuilder.UserID = "Customer";

@@ -37,5 +37,20 @@ namespace MS_FastFood.Model.Repozytoria
             }
             return stan;
         }
+
+        public static int NextID()
+        {
+            int Nextid;
+            using (var connection = DBConnection.Instance.Connection)
+            {
+                string GETBIGGESTID= $"SELECT MAX(id_order) FROM orders";
+                MySqlCommand command = new MySqlCommand(GETBIGGESTID, connection);
+                connection.Open();
+                Nextid = command.ExecuteNonQuery();
+                connection.Close();
+            }
+            Nextid++;
+            return Nextid;
+        }
     }
 }

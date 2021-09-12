@@ -8,15 +8,15 @@
         mc:Ignorable="d"
        Title="{x:Static lang:Lang.Title}" Height="720" Width="1024">
     <Grid>
-        <View:Summary_control x:Name="SummaryControl">
+        <View:Summary_control x:Name="SummaryControl" Visibility="Hidden">
 
         </View:Summary_control>
 
-        <View:Order_control x:Name="OrderControl" >
+        <View:Order_control x:Name="OrderControl" Visibility="Visible" Margin="10,0,-10,0">
             
         </View:Order_control>
         
-        <View:start_window_control x:Name="StartControl"  >
+        <View:start_window_control x:Name="StartControl"  Visibility="Hidden">
             
         </View:start_window_control>
         

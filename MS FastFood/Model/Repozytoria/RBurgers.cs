@@ -24,5 +24,7 @@ namespace MS_FastFood.Model.Repozytoria
             }
             return Burgers;
         }
+
+
     }
 }

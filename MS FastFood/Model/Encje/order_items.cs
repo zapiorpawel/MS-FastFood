@@ -11,9 +11,9 @@ namespace MS_FastFood.Model.Encje
     {
         public int Id_order_items { get; set; }
         public int Id_order { get; set; }
-        public int Id_burger { get; set; }
-        public int Id_drink { get; set; }
-        public int Id_set { get; set; }
+        public int? Id_burger { get; set; }
+        public int? Id_drink { get; set; }
+        public int? Id_set { get; set; }
 
         public int Price { get; set; }
 
@@ -27,7 +27,7 @@ namespace MS_FastFood.Model.Encje
             Price = int.Parse(reader["price"].ToString());
         }
 
-        public order_items(int id_order, int id_burger, int id_drink, int id_set, int price)
+        public order_items(int id_order, int? id_burger, int? id_drink, int? id_set, int price)
         {
             Id_order = id_order;
             Id_burger = id_burger;

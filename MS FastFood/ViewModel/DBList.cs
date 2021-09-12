@@ -24,9 +24,9 @@ namespace MS_FastFood.ViewModel
         public DBList(Model model)
         {
             this.model = model;
-            Burgers = model.burgers;
-            Drinks = model.drinks;
-            Sets = model.sets;
+            Burgers = model.Burgers;
+            Drinks = model.Drinks;
+            Sets = model.Sets;
         }
 
         /*public int indexcurrentburger
@@ -73,9 +73,9 @@ namespace MS_FastFood.ViewModel
             }
         }
 
-        public void RefreshBurgers() => burgers = model.burgers;
-        public void RefreshDrinks() => drinks = model.drinks;
-        public void RefreshSets() => sets = model.sets;
+        public void RefreshBurgers() => burgers = model.Burgers;
+        public void RefreshDrinks() => drinks = model.Drinks;
+        public void RefreshSets() => sets = model.Sets;
 
         private ICommand Zburgers = null;
         private ICommand Zdrinks = null;
@@ -88,7 +88,7 @@ namespace MS_FastFood.ViewModel
                     Zburgers = new RelayCommand(
                         arg =>
                         {
-                            burgers = model.burgers;
+                            burgers = model.Burgers;
                             //indexcurrentburger = -1;
 
                         }
@@ -105,7 +105,7 @@ namespace MS_FastFood.ViewModel
                     Zdrinks = new RelayCommand(
                         arg =>
                         {
-                            drinks = model.drinks;
+                            drinks = model.Drinks;
                         },
                         arg => true);
                 return Zdrinks;
@@ -119,7 +119,7 @@ namespace MS_FastFood.ViewModel
                     Zsets = new RelayCommand(
                         arg =>
                         {
-                            sets = model.sets;
+                            sets = model.Sets;
                         },
                         arg => true);
                 return Zsets;

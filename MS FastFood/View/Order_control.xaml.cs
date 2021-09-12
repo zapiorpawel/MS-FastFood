@@ -30,5 +30,10 @@ namespace MS_FastFood.View
         {
 
         }
+
+        private void OrderListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
