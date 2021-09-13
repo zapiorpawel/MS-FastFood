@@ -4,15 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:MS_FastFood.View"
              xmlns:lang="clr-namespace:MS_FastFood.Properties.Lang"
              xmlns:vm="clr-namespace:MS_FastFood.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="720" d:DesignWidth="1024">
+             d:DesignHeight="720" d:DesignWidth="1000">
     <UserControl.Resources>
         <vm:MainViewModel x:Key="MainVM"/>
     </UserControl.Resources>
-    <Grid DataContext="{StaticResource MainVM}">
+    
+    <Grid DataContext="{StaticResource MainVM}" x:Name="OCGrid" Background="#101010">
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="20*"/>
@@ -26,28 +28,15 @@
 
 
         <ListBox x:Name="OrderListBox" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Padding="50" Width="350" SelectionChanged="OrderListBox_SelectionChanged" Margin="17,13,17,89"/>
-        
-        
+
+
         <Button x:Name="ConfirmButton" Grid.Row="2" Grid.Column="3" Content="{x:Static lang:Lang.Confirm}" FontSize="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Padding="10" Margin="10"/>
-        
-        <Button x:Name="AddButton" 
-                Grid.Row="2" 
-                Grid.Column="0" 
-                Content="{x:Static lang:Lang.Add}" 
-                FontSize="10" 
-                VerticalAlignment="Bottom" 
-                HorizontalAlignment="Left" 
-                Padding="10" 
-                Margin="10,0,0,10"
-                Command="{Binding OrderModifications.Add}"
-                IsEnabled="{Binding OrderModifications.DodawanieDostepne, Mode=OneWay}"/>
-        
-        <Button x:Name="DeleteButton" Grid.Row="2" Grid.Column="0" Content="{x:Static lang:Lang.Delete}" FontSize="25" VerticalAlignment="Bottom" HorizontalAlignment="Left" Padding="10" Margin="157,0,0,10"/>
-        
+
+
         <TabControl x:Name="ProductTab" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="550" Width="605" SelectionChanged="TabControl_SelectionChanged" GotFocus="ProductTab_GotFocus">
 
-            <TabItem x:Name="Burgers" Header="{x:Static lang:Lang.Burgers}" HorizontalAlignment="Right" Width="150" IsSelected="True">
-                <ListView x:Name="BurgersListBox" Margin="3px" 
+            <TabItem x:Name="Burgers" Header="{x:Static lang:Lang.Burgers}" HorizontalAlignment="Right" Width="190" IsSelected="True" Margin="0,0,-37,-2">
+                <ListView x:Name="BurgersListBox" Margin="46,3,3,3" 
                           SelectedItem="{Binding PList.CurrentBurger}"
                           ItemsSource="{Binding PList.burgers}"
                           SelectionChanged="BurgersListBox_SelectionChanged"
@@ -75,7 +64,7 @@
                 </ListView>
             </TabItem>
 
-            <TabItem x:Name="Drinks" Header="{x:Static lang:Lang.Drinks}"  Width="150" HorizontalAlignment="Right" Margin="0,-2,0,0">
+            <TabItem x:Name="Drinks" Header="{x:Static lang:Lang.Drinks}"  Width="190" HorizontalAlignment="Right" Margin="0,0,-35,-2">
                 <ListView x:Name="DrinksListBox" Margin="3px"
                           SelectedItem="{Binding PList.CurrentDrink}"
                           ItemsSource="{Binding PList.drinks}"
@@ -120,7 +109,7 @@
                 </ListView>
             </TabItem>
 
-            <TabItem x:Name="Sets" Header="{x:Static lang:Lang.Sets}" Width="150">
+            <TabItem x:Name="Sets" Header="{x:Static lang:Lang.Sets}" Width="190" Margin="35,0,-35,-2">
                 <ListView x:Name="SetsListBox" Margin="3px"
                           SelectedItem="{Binding PList.CurrentSet}"
                           ItemsSource="{Binding PList.sets}"
@@ -151,31 +140,64 @@
             </TabItem>
 
         </TabControl>
-<!--Produkty dodane do zamówienia-->
-       <DataGrid 
+        <!--Produkty dodane do zamówienia-->
+        <DataGrid 
 
-                        x:Name="dg_osoby"
+                        x:Name="AddProduct"
                         Grid.Column="1"
                         AutoGenerateColumns="False"
-                        Margin="5,5,5,89"
-                        AlternatingRowBackground="Lavender"
+                        Margin="0,41,10,13"
+                        AlternatingRowBackground="#ffea00"
                         GridLinesVisibility="None"
-                        IsReadOnly="True"
                         ItemsSource="{Binding OList.namelist}"
                         SelectedItem="{Binding OList.CurrentOrderItem}"
-                                  SelectedIndex="{Binding TabDodajOsobyVM.IdZaznaczenia, Mode=TwoWay}"                Grid.Row="1"    
+                        Grid.Row="1"    
                     >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Produkt" Binding="{Binding OList.name}"/>
                 <DataGridTextColumn Header="{x:Static lang:Lang.Price}" Binding="{Binding Cena}"/>
             </DataGrid.Columns>
 
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="SelectionChanged">
-                    <i:InvokeCommandAction Command="{Binding TabDodajProdukt.LadujFormularz}"/>
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-        </DataGrid> 
+        </DataGrid>
+        <Grid Background="#be3f2a"  Grid.Row="2" Grid.ColumnSpan="2"   >
+            <ListView x:Name="Selection" Height="80" Margin="0 0" SelectionChanged="Next_SelectionChanged" HorizontalAlignment="Right">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:TransitioningContent x:Name="Start_transition" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.2}">
+                        <Grid x:Name="NextGrid" Margin="0 0 0 0" Background="#be3f2a" Width="0" HorizontalAlignment="Right" Height="0" />
+                    </materialDesign:TransitioningContent>
+                    <materialDesign:PackIcon Kind="ExitToApp" Width="50" Height="50" VerticalAlignment="Center" Margin="5" Foreground="Black"/>
+                    <TextBlock Text="{x:Static lang:Lang.Confirm}" FontSize="15" VerticalAlignment="Center" Margin="20 0" />
+                </StackPanel>
+            </ListView>
 
+            <ListView Height="80" Margin="0 0"  HorizontalAlignment="Left" >
+                <StackPanel Orientation="Horizontal">
+                    <Button
+                        x:Name="AddButton"
+                        Style="{StaticResource MaterialDesignIconButton}"
+                        ToolTip="MaterialDesignIconButton"
+                        Width="50"
+                        Height="50"
+                        Margin="0 0 50 5"
+                        Content="{x:Static lang:Lang.Add}"
+                        FontSize="15"
+                        Command="{Binding OrderModifications.AddToOrder}"
+                        >
+
+                        <Button.Foreground>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+                                <GradientStop Color="black" Offset="0.25" />
+                                <GradientStop Color="black" Offset="1.5" />
+                            </LinearGradientBrush>
+                        </Button.Foreground>
+
+                    </Button>
+                    <materialDesign:PackIcon Kind="Add" Width="50" Height="50"/>
+                    
+
+
+                </StackPanel>
+            </ListView>
+        </Grid>
     </Grid>
 </UserControl>

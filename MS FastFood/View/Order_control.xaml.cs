@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MS_FastFood.Model.Encje;
+using System.Collections.ObjectModel;
 namespace MS_FastFood.View
 {
     /// <summary>
@@ -21,8 +22,6 @@ namespace MS_FastFood.View
     public partial class Order_control : UserControl
     {
         public static string Ti = "Burgers";
-        public int SelectedId = 0;
-        public int SelectedPrice = 0;
 
         internal static burgers currentBurger;
         internal static drinks currentDrink;
@@ -31,7 +30,6 @@ namespace MS_FastFood.View
         public Order_control()
         {
             InitializeComponent();
-            this.Visibility = Visibility.Hidden;
         }
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -68,6 +66,18 @@ namespace MS_FastFood.View
         {
             var item = (ListView)sender;
             currentSet = (sets)item.SelectedItem;
+        }
+
+        private void Next_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = Selection.SelectedIndex;
+            this.Visibility = Visibility.Hidden;
+            MoveCursorMenu(index);
+        }
+        private void MoveCursorMenu(int index)
+        {
+            Start_transition.OnApplyTemplate();
+            OCGrid.Margin = new Thickness(0, 100 + (60 * index), 0, 0);
         }
     }
 }
