@@ -14,6 +14,7 @@ namespace MS_FastFood.Model
     class Model
     {
         public int OrderID = Rorders.NextID();
+        public int ordersum = 0;
 
         public ObservableCollection<burgers> Burgers { get; set; } = new ObservableCollection<burgers>();
         public ObservableCollection<drinks> Drinks { get; set; } = new ObservableCollection<drinks>();
@@ -76,6 +77,7 @@ namespace MS_FastFood.Model
                 order_items OrderItem = new order_items(OrderID, (int)burgers.Id_burger, (int)burgers.Price);
                 Names n = new Names(burgers.Name, burgers.Price);
                 Namelist.Add(n);
+                ordersum += (int)burgers.Price;
                 Rorder_items.AddOrderItemsToTheBase(OrderItem);
             
 
@@ -86,7 +88,7 @@ namespace MS_FastFood.Model
             order_items OrderItem = new order_items(OrderID, (int)drinks.Id_drink, (int)drinks.Price);
             Names n = new Names(drinks.Name,drinks.Price);
             Namelist.Add(n);
-            MessageBox.Show(Namelist.First().name);
+            ordersum += (int)drinks.Price;
             Rorder_items.AddOrderItemsToTheBase(OrderItem);
         }
 
@@ -95,8 +97,9 @@ namespace MS_FastFood.Model
             order_items OrderItem = new order_items(OrderID, (int)sets.Id_set, (int)sets.Price);
             Names n = new Names(sets.Name,sets.Price);
             Namelist.Add(n);
-            Rorder_items.AddOrderItemsToTheBase(OrderItem);
+            ordersum += (int)sets.Price;
 
+            Rorder_items.AddOrderItemsToTheBase(OrderItem);
         }
 
         
@@ -105,7 +108,10 @@ namespace MS_FastFood.Model
             orders Orders = new orders(OrderID,1,"cash");
         }
 
-
+        public int SumToPay()
+        {
+             return ordersum;
+        }
 
 
     }

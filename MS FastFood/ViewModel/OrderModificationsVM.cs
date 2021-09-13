@@ -72,7 +72,7 @@ namespace MS_FastFood.ViewModel
                                 {
                                     model.AddBurgerToOrderItems(Order_control.currentBurger);
                                 }
-                                else if ((Order_control.Ti == "Napoje" || Order_control.Ti == "Drinks") && Order_control.currentSet != null)
+                                else if ((Order_control.Ti == "Napoje" || Order_control.Ti == "Drinks") && Order_control.currentDrink != null)
                                 {
                                     model.AddDrinkToOrderItems(Order_control.currentDrink);
                                 }

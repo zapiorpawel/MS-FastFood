@@ -12,7 +12,7 @@ namespace MS_FastFood.Model.Repozytoria
 
     class Rorder_items
     {
-        private const string ADD_PRODUCT_TO_ORDER_ITEMS = "INSERT INTO `order_items`(`id_order`, `id_product`, `price`) VALUES ";
+        private const string ADD_PRODUCT_TO_ORDER_ITEMS = "INSERT INTO `order_items`(`id_order_items`,`id_order`, `id_product`, `price`) VALUES ";
 
         public static List<order_items> AllOrder_items()
         {
@@ -28,14 +28,15 @@ namespace MS_FastFood.Model.Repozytoria
             }
             return Order_items;
         }
-        public static bool AddOrderItemsToTheBase(order_items Order_items)
+    public static bool AddOrderItemsToTheBase(order_items Order_items)
         {
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)
             {
-                MySqlCommand command = new MySqlCommand($"{ADD_PRODUCT_TO_ORDER_ITEMS} {Order_items.ToInsert()}", connection);
-                MessageBox.Show(command.ToString());
+                MySqlCommand command_add = new MySqlCommand($"{ADD_PRODUCT_TO_ORDER_ITEMS} {Order_items.ToInsert()}", connection);         
+                MessageBox.Show($"{ADD_PRODUCT_TO_ORDER_ITEMS} {Order_items.ToInsert()}");
                 connection.Open();
+                command_add.ExecuteNonQuery();
                 stan = true;
                 connection.Close();
             }

@@ -8,6 +8,8 @@ using MySql.Data.MySqlClient;
 namespace MS_FastFood.Model.Repozytoria
 {
     using Encje;
+    using System.Windows;
+
     class Rorders
     {
         public static List<orders> AllOrders()
@@ -33,7 +35,7 @@ namespace MS_FastFood.Model.Repozytoria
                 MySqlCommand command = new MySqlCommand($"INSERT INTO 'orders' ('Id_order', 'Amount_to_pay', 'Payment_method')VALUES {Orders.ToInsert()}", connection);
                 connection.Open();
                 stan = true;
-                connection.Close();   
+                connection.Close();
             }
             return stan;
         }
@@ -43,14 +45,15 @@ namespace MS_FastFood.Model.Repozytoria
             int Nextid;
             using (var connection = DBConnection.Instance.Connection)
             {
-                string GETBIGGESTID= $"SELECT MAX(id_order) FROM orders";
+                string GETBIGGESTID = $"SELECT MAX(id_order) FROM orders";
                 MySqlCommand command = new MySqlCommand(GETBIGGESTID, connection);
                 connection.Open();
                 Nextid = command.ExecuteNonQuery();
                 connection.Close();
             }
-            Nextid++;
-            return Nextid;
+            Nextid--;
+            MessageBox.Show("Id z funkcji " + Math.Abs(Nextid));
+            return Math.Abs(Nextid);
         }
     }
 }

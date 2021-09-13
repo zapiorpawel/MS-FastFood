@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using MySql.Data.MySqlClient;
 
 namespace MS_FastFood.Model.Encje
@@ -40,7 +41,7 @@ namespace MS_FastFood.Model.Encje
 
         public string ToInsert()
         {
-            return $"(`{Id_order}`, `{Id_product}`, `{Price}`)";
+            return $" (NULL, {Id_order}, {Id_product}, {Price})";
         }
     }
 }
