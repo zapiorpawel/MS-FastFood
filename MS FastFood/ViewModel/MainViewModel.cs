@@ -19,6 +19,8 @@ namespace MS_FastFood.ViewModel
 
         private Model model = new Model();
 
+        public OrderModificationsVM OrderModifications { get; set; }
+
         public DBList PList { get; set; }
         public OrderList OList { get; set; }
 
@@ -27,5 +29,7 @@ namespace MS_FastFood.ViewModel
             PList = new DBList(model);
             OList = new OrderList(model);
         }
+
+
     }
 }

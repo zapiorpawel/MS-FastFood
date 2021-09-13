@@ -133,6 +133,7 @@
     <Compile Include="ViewModel\ControlChange.cs" />
     <Compile Include="ViewModel\DBList.cs" />
     <Compile Include="ViewModel\OrderList.cs" />
+    <Compile Include="ViewModel\OrderModificationsVM.cs" />
     <Compile Include="View\Order_control.xaml.cs">
       <DependentUpon>Order_control.xaml</DependentUpon>
     </Compile>

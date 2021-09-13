@@ -71,7 +71,7 @@ namespace MS_FastFood.Model
 
         public void AddBurgerDoOrderItems(burgers burgers)
         {
-            order_items OrderItem = new order_items(OrderID, burgers.Id_burger,0,0,burgers.Price);
+            order_items OrderItem = new order_items(OrderID, burgers.Id_burger,burgers.Price);
             Names n = new Names(burgers.Name,burgers.Price);
             Namelist.Add(n);
             Rorder_items.AddOrderItemsToTheBase(OrderItem);
@@ -79,7 +79,7 @@ namespace MS_FastFood.Model
 
         public void AddDrinkToOrderItems(drinks drinks)
         {
-            order_items OrderItem = new order_items(OrderID, 0, drinks.Id_drink, 0, drinks.Price);
+            order_items OrderItem = new order_items(OrderID, drinks.Id_drink, drinks.Price);
             Names n = new Names(drinks.Name,drinks.Price);
             Namelist.Add(n);
             Rorder_items.AddOrderItemsToTheBase(OrderItem);
@@ -87,7 +87,7 @@ namespace MS_FastFood.Model
 
         public void AddSetToOrderItems(sets sets)
         {
-            order_items OrderItem = new order_items(OrderID, 0, 0, sets.Id_set, sets.Price);
+            order_items OrderItem = new order_items(OrderID, sets.Id_set, sets.Price);
             Names n = new Names(sets.Name,sets.Price);
             Namelist.Add(n);
             Rorder_items.AddOrderItemsToTheBase(OrderItem);

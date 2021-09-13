@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using MS_FastFood.Model.Encje;
 namespace MS_FastFood.View
 {
     /// <summary>
@@ -20,6 +20,14 @@ namespace MS_FastFood.View
     /// </summary>
     public partial class Order_control : UserControl
     {
+        public static string Ti = "Burgers";
+        public int SelectedId = 0;
+        public int SelectedPrice = 0;
+
+        internal static burgers currentBurger;
+        internal static drinks currentDrink;
+        internal static sets currentSet;
+
         public Order_control()
         {
             InitializeComponent();
@@ -28,12 +36,38 @@ namespace MS_FastFood.View
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+ 
         }
 
         private void OrderListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void ProductTab_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TabItem ti = ProductTab.SelectedItem as TabItem;
+            Ti = (string)ti.Header;
+            //MessageBox.Show("This is " + Ti);
+        }
+
+        private void DrinksListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var item = (ListView)sender;
+            currentDrink = (drinks)item.SelectedItem;
+        }
+
+
+        private void BurgersListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var item = (ListView)sender;
+            currentBurger = (burgers)item.SelectedItem;
+        }
+
+        private void SetsListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var item = (ListView)sender;
+            currentSet = (sets)item.SelectedItem;
         }
     }
 }

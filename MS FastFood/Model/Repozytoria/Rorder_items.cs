@@ -29,7 +29,7 @@ namespace MS_FastFood.Model.Repozytoria
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)
             {
-                MySqlCommand command = new MySqlCommand($"INSERT INTO 'order_items' ('Id_order_items', 'Id_burger', 'Id_drink','Id_set','Price')VALUES {Order_items.ToInsert()}", connection);
+                MySqlCommand command = new MySqlCommand($"INSERT INTO 'order_items' ('Id_order_items', 'Id_product','Price')VALUES {Order_items.ToInsert()}", connection);
                 connection.Open();
                 stan = true;
                 connection.Close();
