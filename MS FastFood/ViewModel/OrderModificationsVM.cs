@@ -59,7 +59,6 @@ namespace MS_FastFood.ViewModel
 
             get
             {
-                MessageBox.Show(Order_control.Ti);
                 if (add == null)
                     add = new RelayCommand(
                         arg =>

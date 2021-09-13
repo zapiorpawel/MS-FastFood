@@ -31,7 +31,6 @@ namespace MS_FastFood.View
         public Order_control()
         {
             InitializeComponent();
-            this.Visibility = Visibility.Hidden;
         }
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -68,6 +67,18 @@ namespace MS_FastFood.View
         {
             var item = (ListView)sender;
             currentSet = (sets)item.SelectedItem;
+        }
+
+        private void Next_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = Selection.SelectedIndex;
+            this.Visibility = Visibility.Hidden;
+            MoveCursorMenu(index);
+        }
+        private void MoveCursorMenu(int index)
+        {
+            Start_transition.OnApplyTemplate();
+            OCGrid.Margin = new Thickness(0, 100 + (60 * index), 0, 0);
         }
     }
 }
