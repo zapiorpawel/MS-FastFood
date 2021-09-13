@@ -8,8 +8,8 @@ namespace MS_FastFood.Model
 {
     class Names
     {
-        public string name;
-        public int price;
+        public string name { get; set; }
+        public int price { get; set; }
 
         public Names(string names, int prices)
         {

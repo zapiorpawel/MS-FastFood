@@ -18,7 +18,9 @@ namespace MS_FastFood.ViewModel
         private ObservableCollection<burgers> Burgers = null;
         private ObservableCollection<drinks> Drinks = null;
         private ObservableCollection<sets> Sets = null;
-        //private int indexBurger = -1;
+        private ObservableCollection<order_items> Order_items = null;
+        private ObservableCollection<orders> Orders = null;
+        private ObservableCollection<Names> Namelist = null;
 
 
         public DBList(Model model)
@@ -27,21 +29,17 @@ namespace MS_FastFood.ViewModel
             Burgers = model.Burgers;
             Drinks = model.Drinks;
             Sets = model.Sets;
+            Order_items = model.Order_Items;
+            Orders = model.Orders;
+            Namelist = model.Namelist;
         }
 
-        /*public int indexcurrentburger
-        {
-            get => indexcurrentburger;
-            set
-            {
-                indexcurrentburger = value;
-                onPropertyChanged(nameof(indexcurrentburger));
-            }
-        }
-        */
         public burgers CurrentBurger { get; set; }
         public drinks CurrentDrink { get; set; }
         public sets CurrentSet { get; set; }
+        public orders CurrentOrder { get; set; }
+        public order_items CurrentOrderItem { get; set; }
+        public Names CurrentNameList { get; set; }
 
         public ObservableCollection<burgers> burgers
         {
@@ -73,13 +71,49 @@ namespace MS_FastFood.ViewModel
             }
         }
 
+        public ObservableCollection<orders> orders
+        {
+            get { return Orders; }
+            set
+            {
+                Orders = value;
+                onPropertyChanged(nameof(orders));
+            }
+        }
+
+        public ObservableCollection<order_items> order_items
+        {
+            get { return Order_items; }
+            set
+            {
+                Order_items = value;
+                onPropertyChanged(nameof(order_items));
+            }
+        }
+
+        public ObservableCollection<Names> name_list
+        {
+            get { return Namelist; }
+            set
+            {
+                Namelist = value;
+                onPropertyChanged(nameof(name_list));
+            }
+        }
+
         public void RefreshBurgers() => burgers = model.Burgers;
         public void RefreshDrinks() => drinks = model.Drinks;
         public void RefreshSets() => sets = model.Sets;
+        public void RefreshOrders() => orders = model.Orders;
+        public void RefreshOrderItems() => order_items = model.Order_Items;
+        public void RefreshNameList() => name_list = model.Namelist;
 
         private ICommand Zburgers = null;
         private ICommand Zdrinks = null;
         private ICommand Zsets = null;
+        private ICommand Zorders = null;
+        private ICommand Zorderitems = null;
+        private ICommand Znamelist = null;
         public ICommand ZBurgers
         {
             get
@@ -123,6 +157,54 @@ namespace MS_FastFood.ViewModel
                         },
                         arg => true);
                 return Zsets;
+            }
+        }
+
+        public ICommand ZOrders
+        {
+            get
+            {
+                if (Zorders == null)
+                    Zorders = new RelayCommand(
+                        arg =>
+                        {
+                            orders = model.Orders;
+                        }
+                        ,
+                        arg => true);
+                return Zorders;
+            }
+        }
+
+        public ICommand ZOrders_Items
+        {
+            get
+            {
+                if (Zorderitems == null)
+                    Zorderitems = new RelayCommand(
+                        arg =>
+                        {
+                            order_items = model.Order_Items;
+                        }
+                        ,
+                        arg => true);
+                return Zorderitems;
+            }
+        }
+
+        public ICommand ZName_list
+        {
+            get
+            {
+                if (Znamelist == null)
+                    Znamelist = new RelayCommand(
+                        arg =>
+                        {
+                            name_list = model.Namelist;
+                        }
+                        ,
+                        arg => true);
+                return Znamelist;
             }
         }
     }

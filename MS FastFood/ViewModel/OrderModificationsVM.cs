@@ -65,19 +65,24 @@ namespace MS_FastFood.ViewModel
                     add = new RelayCommand(
                         arg =>
                         {
-                      
-                            if (Order_control.Ti == "Burgers")
-                            {  
-                                model.AddBurgerDoOrderItems(Order_control.currentBurger);
-                            }
-                            else if (Order_control.Ti == "Drinks")
-                            {
-                                model.AddDrinkToOrderItems(Order_control.currentDrink);
-                            }
-                            else if (Order_control.Ti == "Sets")
-                            {
-                                model.AddSetToOrderItems(Order_control.currentSet);
-                            }
+                            
+                            
+                                MessageBox.Show(Order_control.Ti);
+                                if ((Order_control.Ti == "Burgery" || Order_control.Ti == "Burgers")&& Order_control.currentBurger!=null)
+                                {
+                                    model.AddBurgerToOrderItems(Order_control.currentBurger);
+                                }
+                                else if ((Order_control.Ti == "Napoje" || Order_control.Ti == "Drinks") && Order_control.currentSet != null)
+                                {
+                                    model.AddDrinkToOrderItems(Order_control.currentDrink);
+                                }
+                                else if ((Order_control.Ti == "Sets" || Order_control.Ti == "Zestawy") && Order_control.currentSet != null)
+                                {
+                                    model.AddSetToOrderItems(Order_control.currentSet);
+                                }
+                            
+
+
                         },
                         arg => true);
                 }

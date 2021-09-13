@@ -13,8 +13,8 @@
     <UserControl.Resources>
         <vm:MainViewModel x:Key="MainVM"/>
     </UserControl.Resources>
-    
-    <Grid DataContext="{StaticResource MainVM}" x:Name="OCGrid" Background="#101010">
+
+    <Grid DataContext="{StaticResource MainVM}" x:Name="OCGrid" Background="Beige">
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="20*"/>
@@ -114,6 +114,7 @@
                           SelectedItem="{Binding PList.CurrentSet}"
                           ItemsSource="{Binding PList.sets}"
                           SelectionChanged="SetsListBox_SelectionChanged"
+                          
                           >
                     <ListView.View>
                         <GridView>
@@ -121,7 +122,7 @@
                                 <GridViewColumn x:Name="set_name">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <TextBlock Text="{Binding Name, Mode=TwoWay}"/>
+                                            <TextBlock Text="{Binding Name}"/>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
@@ -141,24 +142,35 @@
 
         </TabControl>
         <!--Produkty dodane do zamówienia-->
-        <DataGrid 
+        <ListView 
 
                         x:Name="AddProduct"
-                        Grid.Column="1"
-                        AutoGenerateColumns="False"
-                        Margin="0,41,10,13"
-                        AlternatingRowBackground="#ffea00"
-                        GridLinesVisibility="None"
-                        ItemsSource="{Binding OList.namelist}"
-                        SelectedItem="{Binding OList.CurrentOrderItem}"
-                        Grid.Row="1"    
+                        Margin="622,41,12,13"
+                        ItemsSource="{Binding PList.name_list}"
+                        SelectedItem="{Binding PList.CurrentOrderItem}"
+                        Grid.Row="1" Grid.ColumnSpan="2" SelectionChanged="AddProduct_SelectionChanged"    
                     >
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Produkt" Binding="{Binding OList.name}"/>
-                <DataGridTextColumn Header="{x:Static lang:Lang.Price}" Binding="{Binding Cena}"/>
-            </DataGrid.Columns>
-
-        </DataGrid>
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn x:Name="produkt_name" Header="{x:Static lang:Lang.Product}">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding name, UpdateSourceTrigger=PropertyChanged}" Width="110"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn x:Name="produkt_price" Header="{x:Static lang:Lang.Price}">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding price, UpdateSourceTrigger=PropertyChanged}" Width="110"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
         <Grid Background="#be3f2a"  Grid.Row="2" Grid.ColumnSpan="2"   >
             <ListView x:Name="Selection" Height="80" Margin="0 0" SelectionChanged="Next_SelectionChanged" HorizontalAlignment="Right">
                 <StackPanel Orientation="Horizontal">
@@ -193,7 +205,7 @@
 
                     </Button>
                     <materialDesign:PackIcon Kind="Add" Width="50" Height="50"/>
-                    
+
 
 
                 </StackPanel>

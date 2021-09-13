@@ -8,8 +8,12 @@ using MySql.Data.MySqlClient;
 namespace MS_FastFood.Model.Repozytoria
 {
     using Encje;
+    using System.Windows;
+
     class Rorder_items
     {
+        private const string ADD_PRODUCT_TO_ORDER_ITEMS = "INSERT INTO `order_items`(`id_order`, `id_product`, `price`) VALUES ";
+
         public static List<order_items> AllOrder_items()
         {
             List<order_items> Order_items = new List<order_items>();
@@ -29,7 +33,8 @@ namespace MS_FastFood.Model.Repozytoria
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)
             {
-                MySqlCommand command = new MySqlCommand($"INSERT INTO 'order_items' ('Id_order_items', 'Id_product','Price')VALUES {Order_items.ToInsert()}", connection);
+                MySqlCommand command = new MySqlCommand($"{ADD_PRODUCT_TO_ORDER_ITEMS} {Order_items.ToInsert()}", connection);
+                MessageBox.Show(command.ToString());
                 connection.Open();
                 stan = true;
                 connection.Close();

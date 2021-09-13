@@ -10,10 +10,9 @@ namespace MS_FastFood.Model.Encje
 
     class order_items
     {
-        public int Id_order_items { get; set; }
+        public int? Id_order_items { get; set; }
         public int Id_order { get; set; }
         public int Id_product { get; set; }
-
         public int Price { get; set; }
 
         public order_items(MySqlDataReader reader)
@@ -34,14 +33,14 @@ namespace MS_FastFood.Model.Encje
 
         public order_items(order_items order_items)
         {
-            Id_order_items = order_items.Id_order_items;
+            Id_order = order_items.Id_order;
             Id_product = order_items.Id_product;
             Price = order_items.Price;
         }
 
         public string ToInsert()
         {
-            return $"({Id_order_items}, {Id_product},{Price})";
+            return $"(`{Id_order}`, `{Id_product}`, `{Price}`)";
         }
     }
 }

@@ -79,5 +79,10 @@ namespace MS_FastFood.View
             Start_transition.OnApplyTemplate();
             OCGrid.Margin = new Thickness(0, 100 + (60 * index), 0, 0);
         }
+
+        private void AddProduct_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
