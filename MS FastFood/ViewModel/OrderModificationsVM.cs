@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace MS_FastFood.ViewModel
 {
@@ -21,7 +22,6 @@ namespace MS_FastFood.ViewModel
         private Model model = null;
         int idCheck = -1;
         private bool dodawanieDostepne = true;
-        private bool edycjaDostepna = true;
 
         public OrderModificationsVM(Model model)
         {
@@ -30,7 +30,9 @@ namespace MS_FastFood.ViewModel
         }
 
         public ObservableCollection<order_items> Order_Items { get; set; }
-
+        public ObservableCollection<drinks> Drinks { get; set; }
+        public ObservableCollection<burgers> Burgers { get; set; }
+        public ObservableCollection<sets> Sets { get; set; }
         public bool DodawanieDostepne
         {
             get { return dodawanieDostepne; }
@@ -54,48 +56,44 @@ namespace MS_FastFood.ViewModel
 
         private ICommand add = null;
 
-        public ICommand Add
+        public ICommand AddToOrder
         {
-
             get
             {
                 if (add == null)
+                {
                     add = new RelayCommand(
                         arg =>
                         {
+                      
                             if (Order_control.Ti == "Burgers")
-                            {
-
+                            {  
                                 model.AddBurgerDoOrderItems(Order_control.currentBurger);
-                                }else if (Order_control.Ti == "Drinks")
-                                {
+                            }
+                            else if (Order_control.Ti == "Drinks")
+                            {
                                 model.AddDrinkToOrderItems(Order_control.currentDrink);
                             }
                             else if (Order_control.Ti == "Sets")
-                                {
+                            {
                                 model.AddSetToOrderItems(Order_control.currentSet);
                             }
-                        }
-                        ,
-                        arg => (true) 
-                        );
-
-
+                        },
+                        arg => true);
+                }
                 return add;
             }
-
         }
 
-        public order_items CurrentItem { get; set; }
 
-        //public string 
-        //{
-        //    get { return imie; }
-        //    set
-        //    {
-        //        imie = value;
-        //        onPropertyChanged(nameof(Imie));
-        //    }
-        //}
+
+
+
+        public order_items CurrentItem { get; set; }
+        public burgers Burger { get; set; }
+        public drinks Drink { get; set; }
+        public sets Set { get; set; }
+
     }
 }
+

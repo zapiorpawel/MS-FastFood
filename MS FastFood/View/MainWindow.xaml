@@ -12,7 +12,8 @@
 
 
 
-        <View:Order_control x:Name="OrderControl" />
+        <View:Order_control x:Name="OrderControl" 
+                            />
 
 
 

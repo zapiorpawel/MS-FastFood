@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MS_FastFood.Model.Encje;
+using System.Collections.ObjectModel;
 namespace MS_FastFood.View
 {
     /// <summary>
@@ -21,8 +22,6 @@ namespace MS_FastFood.View
     public partial class Order_control : UserControl
     {
         public static string Ti = "Burgers";
-        public int SelectedId = 0;
-        public int SelectedPrice = 0;
 
         internal static burgers currentBurger;
         internal static drinks currentDrink;

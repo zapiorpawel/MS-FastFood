@@ -97,7 +97,7 @@ namespace MS_FastFood.Model
         
         public void AddToOrders() //Dodać funkcje sumującą wartość zamówienia 
         {
-            orders Orders = new orders(OrderID,1,"Płatność gotówką");
+            orders Orders = new orders(OrderID,1,"cash");
         }
 
 

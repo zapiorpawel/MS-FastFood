@@ -13,7 +13,8 @@
     <UserControl.Resources>
         <vm:MainViewModel x:Key="MainVM"/>
     </UserControl.Resources>
-    <Grid DataContext="{StaticResource MainVM}" x:Name="OCGrid">
+    
+    <Grid DataContext="{StaticResource MainVM}" x:Name="OCGrid" Background="#101010">
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="20*"/>
@@ -31,17 +32,6 @@
 
         <Button x:Name="ConfirmButton" Grid.Row="2" Grid.Column="3" Content="{x:Static lang:Lang.Confirm}" FontSize="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Padding="10" Margin="10"/>
 
-        <Button x:Name="AddButton" 
-                Grid.Row="2" 
-                Grid.Column="0" 
-                Content="{x:Static lang:Lang.Add}" 
-                FontSize="10" 
-                VerticalAlignment="Bottom" 
-                HorizontalAlignment="Left" 
-                Padding="10" 
-                Margin="10,0,0,10"
-                Command="{Binding OrderModifications.Add}"
-                IsEnabled="{Binding OrderModifications.DodawanieDostepne, Mode=OneWay}"/>
 
         <TabControl x:Name="ProductTab" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="550" Width="605" SelectionChanged="TabControl_SelectionChanged" GotFocus="ProductTab_GotFocus">
 
@@ -153,27 +143,21 @@
         <!--Produkty dodane do zamówienia-->
         <DataGrid 
 
-                        x:Name="dg_osoby"
+                        x:Name="AddProduct"
                         Grid.Column="1"
                         AutoGenerateColumns="False"
                         Margin="0,41,10,13"
                         AlternatingRowBackground="#ffea00"
                         GridLinesVisibility="None"
-                        IsReadOnly="True"
                         ItemsSource="{Binding OList.namelist}"
                         SelectedItem="{Binding OList.CurrentOrderItem}"
-                                  SelectedIndex="{Binding TabDodajOsobyVM.IdZaznaczenia, Mode=TwoWay}"                Grid.Row="1"    
+                        Grid.Row="1"    
                     >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Produkt" Binding="{Binding OList.name}"/>
                 <DataGridTextColumn Header="{x:Static lang:Lang.Price}" Binding="{Binding Cena}"/>
             </DataGrid.Columns>
 
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="SelectionChanged">
-                    <i:InvokeCommandAction Command="{Binding TabDodajProdukt.LadujFormularz}"/>
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
         </DataGrid>
         <Grid Background="#be3f2a"  Grid.Row="2" Grid.ColumnSpan="2"   >
             <ListView x:Name="Selection" Height="80" Margin="0 0" SelectionChanged="Next_SelectionChanged" HorizontalAlignment="Right">
@@ -189,6 +173,7 @@
             <ListView Height="80" Margin="0 0"  HorizontalAlignment="Left" >
                 <StackPanel Orientation="Horizontal">
                     <Button
+                        x:Name="AddButton"
                         Style="{StaticResource MaterialDesignIconButton}"
                         ToolTip="MaterialDesignIconButton"
                         Width="50"
@@ -196,6 +181,7 @@
                         Margin="0 0 50 5"
                         Content="{x:Static lang:Lang.Add}"
                         FontSize="15"
+                        Command="{Binding OrderModifications.AddToOrder}"
                         >
 
                         <Button.Foreground>
@@ -207,6 +193,7 @@
 
                     </Button>
                     <materialDesign:PackIcon Kind="Add" Width="50" Height="50"/>
+                    
 
 
                 </StackPanel>
