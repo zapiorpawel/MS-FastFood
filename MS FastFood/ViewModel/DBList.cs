@@ -21,7 +21,8 @@ namespace MS_FastFood.ViewModel
         private ObservableCollection<order_items> Order_items = null;
         private ObservableCollection<orders> Orders = null;
         private ObservableCollection<Names> Namelist = null;
-
+        public int Sum { get; set; }
+        // private ObservableCollection<int> Sum = null;
 
         public DBList(Model model)
         {
@@ -32,6 +33,7 @@ namespace MS_FastFood.ViewModel
             Order_items = model.Order_Items;
             Orders = model.Orders;
             Namelist = model.Namelist;
+            Sum = model.Sum;
         }
 
         public burgers CurrentBurger { get; set; }
@@ -40,7 +42,17 @@ namespace MS_FastFood.ViewModel
         public orders CurrentOrder { get; set; }
         public order_items CurrentOrderItem { get; set; }
         public Names CurrentNameList { get; set; }
+        //public int CurrentSum { get; set; }
 
+        public int SUM
+        {
+            get { return Sum; }
+            set
+            {
+                Sum = value;
+                onPropertyChanged(nameof(Sum));
+            }
+        }
         public ObservableCollection<burgers> burgers
         {
             get { return Burgers; }
@@ -101,12 +113,24 @@ namespace MS_FastFood.ViewModel
             }
         }
 
+        //public ObservableCollection<int> sum
+        //{
+        //    get { return Sum; }
+        //    set
+        //    {
+        //        Sum = value;
+        //        onPropertyChanged(nameof(sum));
+        //    }
+        //}
+
+
         public void RefreshBurgers() => burgers = model.Burgers;
         public void RefreshDrinks() => drinks = model.Drinks;
         public void RefreshSets() => sets = model.Sets;
         public void RefreshOrders() => orders = model.Orders;
         public void RefreshOrderItems() => order_items = model.Order_Items;
         public void RefreshNameList() => name_list = model.Namelist;
+        public void RefreshSumList() => Sum = model.Sum;
 
         private ICommand Zburgers = null;
         private ICommand Zdrinks = null;
@@ -114,6 +138,7 @@ namespace MS_FastFood.ViewModel
         private ICommand Zorders = null;
         private ICommand Zorderitems = null;
         private ICommand Znamelist = null;
+        private ICommand Zsum = null;
         public ICommand ZBurgers
         {
             get
@@ -123,7 +148,6 @@ namespace MS_FastFood.ViewModel
                         arg =>
                         {
                             burgers = model.Burgers;
-                            //indexcurrentburger = -1;
 
                         }
                         ,
@@ -207,5 +231,21 @@ namespace MS_FastFood.ViewModel
                 return Znamelist;
             }
         }
+        public ICommand ZSum
+        {
+            get
+            {
+                if (Zsum == null)
+                    Zsum = new RelayCommand(
+                        arg =>
+                        {
+                            Sum = model.Sum;
+                        }
+                        ,
+                        arg => true);
+                return Zsum;
+            }
+        }
+
     }
 }

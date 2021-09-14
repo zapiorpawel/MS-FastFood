@@ -25,6 +25,7 @@ namespace MS_FastFood.ViewModel
         {
             PList = new DBList(model);
             OrderModifications = new OrderModificationsVM(model);
+            
         }
 
 

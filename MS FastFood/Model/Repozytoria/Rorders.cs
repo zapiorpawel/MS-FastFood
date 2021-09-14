@@ -8,6 +8,7 @@ using MySql.Data.MySqlClient;
 namespace MS_FastFood.Model.Repozytoria
 {
     using Encje;
+    using System.Data;
     using System.Windows;
 
     class Rorders
@@ -48,12 +49,13 @@ namespace MS_FastFood.Model.Repozytoria
                 string GETBIGGESTID = $"SELECT MAX(id_order) FROM orders";
                 MySqlCommand command = new MySqlCommand(GETBIGGESTID, connection);
                 connection.Open();
-                Nextid = command.ExecuteNonQuery();
+                string c = command.ExecuteScalar().ToString();
+                Nextid = int.Parse(c);
                 connection.Close();
+                Nextid++;
             }
-            Nextid--;
             MessageBox.Show("Id z funkcji " + Math.Abs(Nextid));
-            return Math.Abs(Nextid);
+            return (int)Nextid;
         }
     }
 }

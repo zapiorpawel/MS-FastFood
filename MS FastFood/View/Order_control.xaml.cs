@@ -84,5 +84,10 @@ namespace MS_FastFood.View
         {
 
         }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

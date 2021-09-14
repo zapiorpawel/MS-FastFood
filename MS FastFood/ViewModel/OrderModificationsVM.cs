@@ -29,10 +29,16 @@ namespace MS_FastFood.ViewModel
             Order_Items = model.Order_Items;
         }
 
+
+
         public ObservableCollection<order_items> Order_Items { get; set; }
         public ObservableCollection<drinks> Drinks { get; set; }
         public ObservableCollection<burgers> Burgers { get; set; }
         public ObservableCollection<sets> Sets { get; set; }
+        public ObservableCollection<int> Sum { get; set; }
+
+        
+
         public bool DodawanieDostepne
         {
             get { return dodawanieDostepne; }
@@ -98,6 +104,7 @@ namespace MS_FastFood.ViewModel
         public burgers Burger { get; set; }
         public drinks Drink { get; set; }
         public sets Set { get; set; }
+       
 
     }
 }

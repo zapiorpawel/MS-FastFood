@@ -14,7 +14,10 @@ namespace MS_FastFood.Model
     class Model
     {
         public int OrderID = Rorders.NextID();
-        public int ordersum = 0;
+        public int Sum = 0;
+
+
+
 
         public ObservableCollection<burgers> Burgers { get; set; } = new ObservableCollection<burgers>();
         public ObservableCollection<drinks> Drinks { get; set; } = new ObservableCollection<drinks>();
@@ -22,6 +25,8 @@ namespace MS_FastFood.Model
         public ObservableCollection<orders> Orders { get; set; } = new ObservableCollection<orders>();
         public ObservableCollection<sets> Sets { get; set; } = new ObservableCollection<sets>();
         public ObservableCollection<Names> Namelist { get; set; } = new ObservableCollection<Names>();
+       
+        
 
         public Model()
         {
@@ -40,6 +45,7 @@ namespace MS_FastFood.Model
             var Sets = RSets.AllSets();
             foreach (var s in Sets)
                 this.Sets.Add(s);
+            //InitializeSum();
         }
 
         public burgers SearchBurgerByID(int id)
@@ -77,7 +83,7 @@ namespace MS_FastFood.Model
                 order_items OrderItem = new order_items(OrderID, (int)burgers.Id_burger, (int)burgers.Price);
                 Names n = new Names(burgers.Name, burgers.Price);
                 Namelist.Add(n);
-                ordersum += (int)burgers.Price;
+                Sum = Sum + (int)burgers.Price;
                 Rorder_items.AddOrderItemsToTheBase(OrderItem);
             
 
@@ -88,7 +94,7 @@ namespace MS_FastFood.Model
             order_items OrderItem = new order_items(OrderID, (int)drinks.Id_drink, (int)drinks.Price);
             Names n = new Names(drinks.Name,drinks.Price);
             Namelist.Add(n);
-            ordersum += (int)drinks.Price;
+            Sum = Sum + (int)drinks.Price;
             Rorder_items.AddOrderItemsToTheBase(OrderItem);
         }
 
@@ -97,7 +103,7 @@ namespace MS_FastFood.Model
             order_items OrderItem = new order_items(OrderID, (int)sets.Id_set, (int)sets.Price);
             Names n = new Names(sets.Name,sets.Price);
             Namelist.Add(n);
-            ordersum += (int)sets.Price;
+            Sum = Sum + (int)sets.Price;
 
             Rorder_items.AddOrderItemsToTheBase(OrderItem);
         }
@@ -110,10 +116,8 @@ namespace MS_FastFood.Model
 
         public int SumToPay()
         {
-             return ordersum;
+            return Sum;
         }
-
-
     }
 }
 

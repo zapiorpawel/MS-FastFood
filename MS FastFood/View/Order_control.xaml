@@ -142,13 +142,16 @@
 
         </TabControl>
         <!--Produkty dodane do zamówienia-->
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="1">
         <ListView 
 
                         x:Name="AddProduct"
-                        Margin="622,41,12,13"
+                        Margin="0,13,9,146"
                         ItemsSource="{Binding PList.name_list}"
                         SelectedItem="{Binding PList.CurrentOrderItem}"
-                        Grid.Row="1" Grid.ColumnSpan="2" SelectionChanged="AddProduct_SelectionChanged"    
+                         SelectionChanged="AddProduct_SelectionChanged" Height="310"    
                     >
             <ListView.View>
                 <GridView>
@@ -171,6 +174,14 @@
                 </GridView>
             </ListView.View>
         </ListView>
+            <ListView>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Money" Height="40" Width="40" VerticalAlignment="Center"/>
+                    <TextBlock Text="{x:Static lang:Lang.Summary}" VerticalAlignment="Center" FontSize="20"/>
+                    <TextBlock Text="{Binding PList.Sum}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Margin="20" />
+                </StackPanel>
+           </ListView>
+        </StackPanel>
         <Grid Background="#be3f2a"  Grid.Row="2" Grid.ColumnSpan="2"   >
             <ListView x:Name="Selection" Height="80" Margin="0 0" SelectionChanged="Next_SelectionChanged" HorizontalAlignment="Right">
                 <StackPanel Orientation="Horizontal">

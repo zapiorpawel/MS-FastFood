@@ -10,7 +10,6 @@ namespace MS_FastFood.Model
     {
         public string name { get; set; }
         public int price { get; set; }
-
         public Names(string names, int prices)
         {
             name = names;
