@@ -27,7 +27,7 @@
         </Grid.ColumnDefinitions>
 
 
-        <ListBox x:Name="OrderListBox" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Padding="50" Width="350" SelectionChanged="OrderListBox_SelectionChanged" Margin="17,13,17,89"/>
+        <ListBox x:Name="OrderListBox" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Padding="50" Width="350" SelectionChanged="OrderListBox_SelectionChanged" Margin="10,13,15,153"/>
 
 
         <Button x:Name="ConfirmButton" Grid.Row="2" Grid.Column="3" Content="{x:Static lang:Lang.Confirm}" FontSize="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Padding="10" Margin="10"/>
@@ -144,7 +144,14 @@
         <!--Produkty dodane do zamówienia-->
         <StackPanel
             Grid.Row="1"
-            Grid.Column="1">
+            Grid.Column="1" Margin="0,0,0,13">
+            <ListView RenderTransformOrigin="0.493,0.034">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="FastFood" Height="40" Width="40" VerticalAlignment="Center"/>
+                    <TextBlock Text="{x:Static lang:Lang.Summary}" VerticalAlignment="Center" FontSize="20"/>
+                    <TextBlock Text="{Binding OrderModifications.PriceToPay}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" Margin="20" Width="42" RenderTransformOrigin="3.015,0.334" />
+                </StackPanel>
+            </ListView>
         <ListView 
 
                         x:Name="AddProduct"
@@ -174,13 +181,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-            <ListView>
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Money" Height="40" Width="40" VerticalAlignment="Center"/>
-                    <TextBlock Text="{x:Static lang:Lang.Summary}" VerticalAlignment="Center" FontSize="20"/>
-                    <TextBlock Text="{Binding PList.Sum}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Margin="20" />
-                </StackPanel>
-           </ListView>
+            
         </StackPanel>
         <Grid Background="#be3f2a"  Grid.Row="2" Grid.ColumnSpan="2"   >
             <ListView x:Name="Selection" Height="80" Margin="0 0" SelectionChanged="Next_SelectionChanged" HorizontalAlignment="Right">

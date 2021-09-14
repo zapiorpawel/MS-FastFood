@@ -223,6 +223,15 @@ namespace MS_FastFood.Properties.Lang {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zapraszamy ponownie..
+        /// </summary>
+        public static string Th {
+            get {
+                return ResourceManager.GetString("Th", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu MS Fastfood.
         /// </summary>
         public static string Title {

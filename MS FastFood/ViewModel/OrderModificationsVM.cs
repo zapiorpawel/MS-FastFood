@@ -13,20 +13,21 @@ namespace MS_FastFood.ViewModel
     using System.Windows.Input;
     using System.Collections.ObjectModel;
     using View;
-    using ViewModel;
     using System.Windows;
 
     class OrderModificationsVM : ViewModelBase
     {
 
         private Model model = null;
-        int idCheck = -1;
+        public int idCheck = -1;
         private bool dodawanieDostepne = true;
+        public int PriceToPay=0;
 
         public OrderModificationsVM(Model model)
         {
             this.model = model;
             Order_Items = model.Order_Items;
+            PriceToPay = model.Sum;
         }
 
 
@@ -35,7 +36,6 @@ namespace MS_FastFood.ViewModel
         public ObservableCollection<drinks> Drinks { get; set; }
         public ObservableCollection<burgers> Burgers { get; set; }
         public ObservableCollection<sets> Sets { get; set; }
-        public ObservableCollection<int> Sum { get; set; }
 
         
 
@@ -72,9 +72,7 @@ namespace MS_FastFood.ViewModel
                         arg =>
                         {
                             
-                            
-                                MessageBox.Show(Order_control.Ti);
-                                if ((Order_control.Ti == "Burgery" || Order_control.Ti == "Burgers")&& Order_control.currentBurger!=null)
+                                if ((Order_control.Ti == "Burgery" || Order_control.Ti == "Burgers") && Order_control.currentBurger!=null)
                                 {
                                     model.AddBurgerToOrderItems(Order_control.currentBurger);
                                 }
@@ -86,8 +84,9 @@ namespace MS_FastFood.ViewModel
                                 {
                                     model.AddSetToOrderItems(Order_control.currentSet);
                                 }
-                            
 
+                            PriceToPay = model.SumToPay();
+                            MessageBox.Show("Sum: " + PriceToPay.ToString());
 
                         },
                         arg => true);

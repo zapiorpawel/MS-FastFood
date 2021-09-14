@@ -8,7 +8,6 @@ using MySql.Data.MySqlClient;
 namespace MS_FastFood.Model.Repozytoria
 {
     using Encje;
-    using System.Windows;
 
     class Rorder_items
     {
@@ -34,7 +33,6 @@ namespace MS_FastFood.Model.Repozytoria
             using (var connection = DBConnection.Instance.Connection)
             {
                 MySqlCommand command_add = new MySqlCommand($"{ADD_PRODUCT_TO_ORDER_ITEMS} {Order_items.ToInsert()}", connection);         
-                MessageBox.Show($"{ADD_PRODUCT_TO_ORDER_ITEMS} {Order_items.ToInsert()}");
                 connection.Open();
                 command_add.ExecuteNonQuery();
                 stan = true;

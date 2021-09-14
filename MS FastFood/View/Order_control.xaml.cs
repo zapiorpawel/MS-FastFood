@@ -71,6 +71,7 @@ namespace MS_FastFood.View
         private void Next_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = Selection.SelectedIndex;
+
             this.Visibility = Visibility.Hidden;
             MoveCursorMenu(index);
         }
@@ -89,5 +90,6 @@ namespace MS_FastFood.View
         {
 
         }
+
     }
 }

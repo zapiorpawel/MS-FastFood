@@ -14,7 +14,7 @@ namespace MS_FastFood.Model
     class Model
     {
         public int OrderID = Rorders.NextID();
-        public int Sum = 0;
+        internal int Sum = 0;
 
 
 

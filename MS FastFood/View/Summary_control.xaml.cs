@@ -29,6 +29,10 @@ namespace MS_FastFood.View
         {
             Application.Current.Shutdown();           
         }
-       
+
+        private void Products_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

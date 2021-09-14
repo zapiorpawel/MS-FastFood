@@ -21,7 +21,7 @@ namespace MS_FastFood.ViewModel
         private ObservableCollection<order_items> Order_items = null;
         private ObservableCollection<orders> Orders = null;
         private ObservableCollection<Names> Namelist = null;
-        public int Sum { get; set; }
+        public int Sum = 0;
         // private ObservableCollection<int> Sum = null;
 
         public DBList(Model model)
@@ -44,14 +44,9 @@ namespace MS_FastFood.ViewModel
         public Names CurrentNameList { get; set; }
         //public int CurrentSum { get; set; }
 
-        public int SUM
+        public void sum()
         {
-            get { return Sum; }
-            set
-            {
-                Sum = value;
-                onPropertyChanged(nameof(Sum));
-            }
+                Sum = model.SumToPay();
         }
         public ObservableCollection<burgers> burgers
         {
@@ -112,16 +107,6 @@ namespace MS_FastFood.ViewModel
                 onPropertyChanged(nameof(name_list));
             }
         }
-
-        //public ObservableCollection<int> sum
-        //{
-        //    get { return Sum; }
-        //    set
-        //    {
-        //        Sum = value;
-        //        onPropertyChanged(nameof(sum));
-        //    }
-        //}
 
 
         public void RefreshBurgers() => burgers = model.Burgers;

@@ -15,5 +15,11 @@ namespace MS_FastFood.Model
             name = names;
             price = prices;
         }
+
+        public Names(Names names)
+        {
+            name = names.name;
+            price = names.price;
+        }
     }
 }

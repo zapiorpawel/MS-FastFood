@@ -54,7 +54,6 @@ namespace MS_FastFood.Model.Repozytoria
                 connection.Close();
                 Nextid++;
             }
-            MessageBox.Show("Id z funkcji " + Math.Abs(Nextid));
             return (int)Nextid;
         }
     }
